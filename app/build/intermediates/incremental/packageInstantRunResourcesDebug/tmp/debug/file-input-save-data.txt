@@ -1,0 +1,19 @@
+#Internal package file, do not edit.
+#Thu Oct 17 17:10:34 CST 2019
+1.base=C\:\\Users\\Administrator\\AndroidStudioProjects\\MESMid\\app\\build\\intermediates\\merged_assets\\debug\\out
+2.path=scan.wav
+0.baseType=DIRECTORY
+3.baseType=DIRECTORY
+2.base=C\:\\Users\\Administrator\\AndroidStudioProjects\\MESMid\\app\\build\\intermediates\\merged_assets\\debug\\out
+3.set=ASSET
+2.set=ASSET
+1.baseType=DIRECTORY
+3.path=shutter.wav
+count=4
+1.set=ASSET
+0.path=error.wav
+3.base=C\:\\Users\\Administrator\\AndroidStudioProjects\\MESMid\\app\\build\\intermediates\\merged_assets\\debug\\out
+0.set=ASSET
+0.base=C\:\\Users\\Administrator\\AndroidStudioProjects\\MESMid\\app\\build\\intermediates\\merged_assets\\debug\\out
+2.baseType=DIRECTORY
+1.path=right.wav

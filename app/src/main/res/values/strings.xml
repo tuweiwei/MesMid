@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">MESMid</string>
+    <string name="user_name">请输入用户名</string>
+    <string name="keyboard_name">键盘--请输入5位数字</string>
+    <string name="job_order">JobOrder</string>
+    <string name="action_settings">Settings</string>
+     <string name="action_items">Items</string>
+    <string name="hello_world">Hello world!</string>
+
+    <string-array name="ndxs_arry">
+        <item>A</item>
+        <item>B</item>
+        <item>C</item>
+        <item>D</item>
+        <item>E</item>
+    </string-array>
+    
+    <string-array name="zrbm_arry">
+        <item>SMT</item>
+        <item>改ECN</item>
+        <item>组装</item>
+        <item>包装</item>
+        <item>来料</item>
+        <item>后焊</item>
+    </string-array>
+</resources>

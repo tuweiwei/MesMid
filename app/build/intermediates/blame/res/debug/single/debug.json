@@ -1,0 +1,130 @@
+[
+    {
+        "merged": "C:\\Users\\Administrator\\AndroidStudioProjects\\MESMid\\app\\build\\intermediates\\res\\merged\\debug\\layout_user.xml.flat",
+        "source": "C:\\Users\\Administrator\\AndroidStudioProjects\\MESMid\\app\\src\\main\\res\\layout\\user.xml"
+    },
+    {
+        "merged": "C:\\Users\\Administrator\\AndroidStudioProjects\\MESMid\\app\\build\\intermediates\\res\\merged\\debug\\layout_keyboard.xml.flat",
+        "source": "C:\\Users\\Administrator\\AndroidStudioProjects\\MESMid\\app\\src\\main\\res\\layout\\keyboard.xml"
+    },
+    {
+        "merged": "C:\\Users\\Administrator\\AndroidStudioProjects\\MESMid\\app\\build\\intermediates\\res\\merged\\debug\\layout_wxitem.xml.flat",
+        "source": "C:\\Users\\Administrator\\AndroidStudioProjects\\MESMid\\app\\src\\main\\res\\layout\\wxitem.xml"
+    },
+    {
+        "merged": "C:\\Users\\Administrator\\AndroidStudioProjects\\MESMid\\app\\build\\intermediates\\res\\merged\\debug\\menu_main.xml.flat",
+        "source": "C:\\Users\\Administrator\\AndroidStudioProjects\\MESMid\\app\\src\\main\\res\\menu\\main.xml"
+    },
+    {
+        "merged": "C:\\Users\\Administrator\\AndroidStudioProjects\\MESMid\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_yf_201311191178.png.flat",
+        "source": "C:\\Users\\Administrator\\AndroidStudioProjects\\MESMid\\app\\src\\main\\res\\drawable-hdpi\\yf_201311191178.png"
+    },
+    {
+        "merged": "C:\\Users\\Administrator\\AndroidStudioProjects\\MESMid\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_oqc.xml.flat",
+        "source": "C:\\Users\\Administrator\\AndroidStudioProjects\\MESMid\\app\\src\\main\\res\\layout\\activity_oqc.xml"
+    },
+    {
+        "merged": "C:\\Users\\Administrator\\AndroidStudioProjects\\MESMid\\app\\build\\intermediates\\res\\merged\\debug\\layout_joborderitem.xml.flat",
+        "source": "C:\\Users\\Administrator\\AndroidStudioProjects\\MESMid\\app\\src\\main\\res\\layout\\joborderitem.xml"
+    },
+    {
+        "merged": "C:\\Users\\Administrator\\AndroidStudioProjects\\MESMid\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\Administrator\\AndroidStudioProjects\\MESMid\\app\\src\\main\\res\\drawable-xxhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\Users\\Administrator\\AndroidStudioProjects\\MESMid\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\Administrator\\AndroidStudioProjects\\MESMid\\app\\src\\main\\res\\drawable-mdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\Users\\Administrator\\AndroidStudioProjects\\MESMid\\app\\build\\intermediates\\res\\merged\\debug\\layout_xg.xml.flat",
+        "source": "C:\\Users\\Administrator\\AndroidStudioProjects\\MESMid\\app\\src\\main\\res\\layout\\xg.xml"
+    },
+    {
+        "merged": "C:\\Users\\Administrator\\AndroidStudioProjects\\MESMid\\app\\build\\intermediates\\res\\merged\\debug\\layout_xgitem.xml.flat",
+        "source": "C:\\Users\\Administrator\\AndroidStudioProjects\\MESMid\\app\\src\\main\\res\\layout\\xgitem.xml"
+    },
+    {
+        "merged": "C:\\Users\\Administrator\\AndroidStudioProjects\\MESMid\\app\\build\\intermediates\\res\\merged\\debug\\layout_download_notification_layout.xml.flat",
+        "source": "C:\\Users\\Administrator\\AndroidStudioProjects\\MESMid\\app\\src\\main\\res\\layout\\download_notification_layout.xml"
+    },
+    {
+        "merged": "C:\\Users\\Administrator\\AndroidStudioProjects\\MESMid\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_btn_back_normal.png.flat",
+        "source": "C:\\Users\\Administrator\\AndroidStudioProjects\\MESMid\\app\\src\\main\\res\\drawable-hdpi\\btn_back_normal.png"
+    },
+    {
+        "merged": "C:\\Users\\Administrator\\AndroidStudioProjects\\MESMid\\app\\build\\intermediates\\res\\merged\\debug\\layout_gwitem.xml.flat",
+        "source": "C:\\Users\\Administrator\\AndroidStudioProjects\\MESMid\\app\\src\\main\\res\\layout\\gwitem.xml"
+    },
+    {
+        "merged": "C:\\Users\\Administrator\\AndroidStudioProjects\\MESMid\\app\\build\\intermediates\\res\\merged\\debug\\layout_sopyulang.xml.flat",
+        "source": "C:\\Users\\Administrator\\AndroidStudioProjects\\MESMid\\app\\src\\main\\res\\layout\\sopyulang.xml"
+    },
+    {
+        "merged": "C:\\Users\\Administrator\\AndroidStudioProjects\\MESMid\\app\\build\\intermediates\\res\\merged\\debug\\layout_customtitle.xml.flat",
+        "source": "C:\\Users\\Administrator\\AndroidStudioProjects\\MESMid\\app\\src\\main\\res\\layout\\customtitle.xml"
+    },
+    {
+        "merged": "C:\\Users\\Administrator\\AndroidStudioProjects\\MESMid\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_main.xml.flat",
+        "source": "C:\\Users\\Administrator\\AndroidStudioProjects\\MESMid\\app\\src\\main\\res\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "C:\\Users\\Administrator\\AndroidStudioProjects\\MESMid\\app\\build\\intermediates\\res\\merged\\debug\\layout_wx.xml.flat",
+        "source": "C:\\Users\\Administrator\\AndroidStudioProjects\\MESMid\\app\\src\\main\\res\\layout\\wx.xml"
+    },
+    {
+        "merged": "C:\\Users\\Administrator\\AndroidStudioProjects\\MESMid\\app\\build\\intermediates\\res\\merged\\debug\\layout_update.xml.flat",
+        "source": "C:\\Users\\Administrator\\AndroidStudioProjects\\MESMid\\app\\src\\main\\res\\layout\\update.xml"
+    },
+    {
+        "merged": "C:\\Users\\Administrator\\AndroidStudioProjects\\MESMid\\app\\build\\intermediates\\res\\merged\\debug\\layout_materialitem.xml.flat",
+        "source": "C:\\Users\\Administrator\\AndroidStudioProjects\\MESMid\\app\\src\\main\\res\\layout\\materialitem.xml"
+    },
+    {
+        "merged": "C:\\Users\\Administrator\\AndroidStudioProjects\\MESMid\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\Administrator\\AndroidStudioProjects\\MESMid\\app\\src\\main\\res\\drawable-xhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\Users\\Administrator\\AndroidStudioProjects\\MESMid\\app\\build\\intermediates\\res\\merged\\debug\\layout_oqc.xml.flat",
+        "source": "C:\\Users\\Administrator\\AndroidStudioProjects\\MESMid\\app\\src\\main\\res\\layout\\oqc.xml"
+    },
+    {
+        "merged": "C:\\Users\\Administrator\\AndroidStudioProjects\\MESMid\\app\\build\\intermediates\\res\\merged\\debug\\layout_item.xml.flat",
+        "source": "C:\\Users\\Administrator\\AndroidStudioProjects\\MESMid\\app\\src\\main\\res\\layout\\item.xml"
+    },
+    {
+        "merged": "C:\\Users\\Administrator\\AndroidStudioProjects\\MESMid\\app\\build\\intermediates\\res\\merged\\debug\\layout_wx2.xml.flat",
+        "source": "C:\\Users\\Administrator\\AndroidStudioProjects\\MESMid\\app\\src\\main\\res\\layout\\wx2.xml"
+    },
+    {
+        "merged": "C:\\Users\\Administrator\\AndroidStudioProjects\\MESMid\\app\\build\\intermediates\\res\\merged\\debug\\layout_zy.xml.flat",
+        "source": "C:\\Users\\Administrator\\AndroidStudioProjects\\MESMid\\app\\src\\main\\res\\layout\\zy.xml"
+    },
+    {
+        "merged": "C:\\Users\\Administrator\\AndroidStudioProjects\\MESMid\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\Administrator\\AndroidStudioProjects\\MESMid\\app\\src\\main\\res\\drawable-hdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\Users\\Administrator\\AndroidStudioProjects\\MESMid\\app\\build\\intermediates\\res\\merged\\debug\\layout_procedureitem.xml.flat",
+        "source": "C:\\Users\\Administrator\\AndroidStudioProjects\\MESMid\\app\\src\\main\\res\\layout\\procedureitem.xml"
+    },
+    {
+        "merged": "C:\\Users\\Administrator\\AndroidStudioProjects\\MESMid\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_newlogin_bg.png.flat",
+        "source": "C:\\Users\\Administrator\\AndroidStudioProjects\\MESMid\\app\\src\\main\\res\\drawable-hdpi\\newlogin_bg.png"
+    },
+    {
+        "merged": "C:\\Users\\Administrator\\AndroidStudioProjects\\MESMid\\app\\build\\intermediates\\res\\merged\\debug\\layout_gw.xml.flat",
+        "source": "C:\\Users\\Administrator\\AndroidStudioProjects\\MESMid\\app\\src\\main\\res\\layout\\gw.xml"
+    },
+    {
+        "merged": "C:\\Users\\Administrator\\AndroidStudioProjects\\MESMid\\app\\build\\intermediates\\res\\merged\\debug\\layout_joblist.xml.flat",
+        "source": "C:\\Users\\Administrator\\AndroidStudioProjects\\MESMid\\app\\src\\main\\res\\layout\\joblist.xml"
+    },
+    {
+        "merged": "C:\\Users\\Administrator\\AndroidStudioProjects\\MESMid\\app\\build\\intermediates\\res\\merged\\debug\\layout_iqc.xml.flat",
+        "source": "C:\\Users\\Administrator\\AndroidStudioProjects\\MESMid\\app\\src\\main\\res\\layout\\iqc.xml"
+    },
+    {
+        "merged": "C:\\Users\\Administrator\\AndroidStudioProjects\\MESMid\\app\\build\\intermediates\\res\\merged\\debug\\layout_wx1.xml.flat",
+        "source": "C:\\Users\\Administrator\\AndroidStudioProjects\\MESMid\\app\\src\\main\\res\\layout\\wx1.xml"
+    }
+]

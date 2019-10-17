@@ -1,0 +1,253 @@
+-- Merging decision tree log ---
+manifest
+ADDED from C:\Users\Administrator\AndroidStudioProjects\MESMid\app\src\main\AndroidManifest.xml:2:1-146:12
+INJECTED from C:\Users\Administrator\AndroidStudioProjects\MESMid\app\src\main\AndroidManifest.xml:2:1-146:12
+INJECTED from C:\Users\Administrator\AndroidStudioProjects\MESMid\app\src\main\AndroidManifest.xml:2:1-146:12
+INJECTED from C:\Users\Administrator\AndroidStudioProjects\MESMid\app\src\main\AndroidManifest.xml:2:1-146:12
+INJECTED from C:\Users\Administrator\AndroidStudioProjects\MESMid\app\src\main\AndroidManifest.xml:2:1-146:12
+INJECTED from C:\Users\Administrator\AndroidStudioProjects\MESMid\app\src\main\AndroidManifest.xml:2:1-146:12
+INJECTED from C:\Users\Administrator\AndroidStudioProjects\MESMid\app\src\main\AndroidManifest.xml:2:1-146:12
+	package
+		ADDED from C:\Users\Administrator\AndroidStudioProjects\MESMid\app\src\main\AndroidManifest.xml:3:5-28
+		INJECTED from C:\Users\Administrator\AndroidStudioProjects\MESMid\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\Administrator\AndroidStudioProjects\MESMid\app\src\main\AndroidManifest.xml
+	android:versionName
+		ADDED from C:\Users\Administrator\AndroidStudioProjects\MESMid\app\src\main\AndroidManifest.xml:5:5-30
+		INJECTED from C:\Users\Administrator\AndroidStudioProjects\MESMid\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\Administrator\AndroidStudioProjects\MESMid\app\src\main\AndroidManifest.xml
+	xmlns:android
+		ADDED from C:\Users\Administrator\AndroidStudioProjects\MESMid\app\src\main\AndroidManifest.xml:2:11-69
+	android:versionCode
+		ADDED from C:\Users\Administrator\AndroidStudioProjects\MESMid\app\src\main\AndroidManifest.xml:4:5-28
+		INJECTED from C:\Users\Administrator\AndroidStudioProjects\MESMid\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\Administrator\AndroidStudioProjects\MESMid\app\src\main\AndroidManifest.xml
+uses-permission#android.permission.INTERNET
+ADDED from C:\Users\Administrator\AndroidStudioProjects\MESMid\app\src\main\AndroidManifest.xml:7:5-67
+	android:name
+		ADDED from C:\Users\Administrator\AndroidStudioProjects\MESMid\app\src\main\AndroidManifest.xml:7:22-64
+uses-permission#android.permission.GET_TASKS
+ADDED from C:\Users\Administrator\AndroidStudioProjects\MESMid\app\src\main\AndroidManifest.xml:8:5-67
+	android:name
+		ADDED from C:\Users\Administrator\AndroidStudioProjects\MESMid\app\src\main\AndroidManifest.xml:8:22-65
+uses-permission#android.permission.ACCESS_WIFI_STATE
+ADDED from C:\Users\Administrator\AndroidStudioProjects\MESMid\app\src\main\AndroidManifest.xml:9:5-75
+	android:name
+		ADDED from C:\Users\Administrator\AndroidStudioProjects\MESMid\app\src\main\AndroidManifest.xml:9:22-73
+uses-permission#android.permission.CHANGE_WIFI_STATE
+ADDED from C:\Users\Administrator\AndroidStudioProjects\MESMid\app\src\main\AndroidManifest.xml:10:5-75
+	android:name
+		ADDED from C:\Users\Administrator\AndroidStudioProjects\MESMid\app\src\main\AndroidManifest.xml:10:22-73
+uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
+ADDED from C:\Users\Administrator\AndroidStudioProjects\MESMid\app\src\main\AndroidManifest.xml:11:5-80
+	android:name
+		ADDED from C:\Users\Administrator\AndroidStudioProjects\MESMid\app\src\main\AndroidManifest.xml:11:22-78
+uses-permission#android.permission.ACCESS_NETWORK_STATE
+ADDED from C:\Users\Administrator\AndroidStudioProjects\MESMid\app\src\main\AndroidManifest.xml:12:5-79
+	android:name
+		ADDED from C:\Users\Administrator\AndroidStudioProjects\MESMid\app\src\main\AndroidManifest.xml:12:22-76
+uses-permission#android.permission.CHANGE_NETWORK_STATE
+ADDED from C:\Users\Administrator\AndroidStudioProjects\MESMid\app\src\main\AndroidManifest.xml:13:5-79
+	android:name
+		ADDED from C:\Users\Administrator\AndroidStudioProjects\MESMid\app\src\main\AndroidManifest.xml:13:22-76
+uses-permission#android.permission.RECEIVE_BOOT_COMPLETED
+ADDED from C:\Users\Administrator\AndroidStudioProjects\MESMid\app\src\main\AndroidManifest.xml:15:4-80
+	android:name
+		ADDED from C:\Users\Administrator\AndroidStudioProjects\MESMid\app\src\main\AndroidManifest.xml:15:21-77
+uses-permission#android.permission.DISABLE_KEYGUARD
+ADDED from C:\Users\Administrator\AndroidStudioProjects\MESMid\app\src\main\AndroidManifest.xml:17:2-88
+	android:name
+		ADDED from C:\Users\Administrator\AndroidStudioProjects\MESMid\app\src\main\AndroidManifest.xml:17:19-69
+uses-permission#android.permission.WAKE_LOCK
+ADDED from C:\Users\Administrator\AndroidStudioProjects\MESMid\app\src\main\AndroidManifest.xml:19:2-81
+	android:name
+		ADDED from C:\Users\Administrator\AndroidStudioProjects\MESMid\app\src\main\AndroidManifest.xml:19:19-62
+application
+ADDED from C:\Users\Administrator\AndroidStudioProjects\MESMid\app\src\main\AndroidManifest.xml:20:5-144:19
+	android:label
+		ADDED from C:\Users\Administrator\AndroidStudioProjects\MESMid\app\src\main\AndroidManifest.xml:24:9-41
+	android:icon
+		ADDED from C:\Users\Administrator\AndroidStudioProjects\MESMid\app\src\main\AndroidManifest.xml:23:9-49
+	android:allowBackup
+		ADDED from C:\Users\Administrator\AndroidStudioProjects\MESMid\app\src\main\AndroidManifest.xml:22:9-35
+	android:theme
+		ADDED from C:\Users\Administrator\AndroidStudioProjects\MESMid\app\src\main\AndroidManifest.xml:25:9-62
+	android:name
+		ADDED from C:\Users\Administrator\AndroidStudioProjects\MESMid\app\src\main\AndroidManifest.xml:21:9-46
+activity#com.yf.mesmid.UserActivity
+ADDED from C:\Users\Administrator\AndroidStudioProjects\MESMid\app\src\main\AndroidManifest.xml:28:9-37:20
+	android:screenOrientation
+		ADDED from C:\Users\Administrator\AndroidStudioProjects\MESMid\app\src\main\AndroidManifest.xml:31:13-50
+	android:label
+		ADDED from C:\Users\Administrator\AndroidStudioProjects\MESMid\app\src\main\AndroidManifest.xml:30:13-46
+	android:launchMode
+		ADDED from C:\Users\Administrator\AndroidStudioProjects\MESMid\app\src\main\AndroidManifest.xml:34:13-48
+	android:windowSoftInputMode
+		ADDED from C:\Users\Administrator\AndroidStudioProjects\MESMid\app\src\main\AndroidManifest.xml:32:13-72
+	android:configChanges
+		ADDED from C:\Users\Administrator\AndroidStudioProjects\MESMid\app\src\main\AndroidManifest.xml:35:13-48
+	android:theme
+		ADDED from C:\Users\Administrator\AndroidStudioProjects\MESMid\app\src\main\AndroidManifest.xml:33:13-56
+	android:name
+		ADDED from C:\Users\Administrator\AndroidStudioProjects\MESMid\app\src\main\AndroidManifest.xml:29:13-54
+activity#com.yf.mesmid.KeyBoard
+ADDED from C:\Users\Administrator\AndroidStudioProjects\MESMid\app\src\main\AndroidManifest.xml:39:10-47:20
+	android:screenOrientation
+		ADDED from C:\Users\Administrator\AndroidStudioProjects\MESMid\app\src\main\AndroidManifest.xml:42:13-50
+	android:label
+		ADDED from C:\Users\Administrator\AndroidStudioProjects\MESMid\app\src\main\AndroidManifest.xml:41:13-50
+	android:launchMode
+		ADDED from C:\Users\Administrator\AndroidStudioProjects\MESMid\app\src\main\AndroidManifest.xml:45:13-48
+	android:windowSoftInputMode
+		ADDED from C:\Users\Administrator\AndroidStudioProjects\MESMid\app\src\main\AndroidManifest.xml:43:13-72
+	android:configChanges
+		ADDED from C:\Users\Administrator\AndroidStudioProjects\MESMid\app\src\main\AndroidManifest.xml:46:13-48
+	android:theme
+		ADDED from C:\Users\Administrator\AndroidStudioProjects\MESMid\app\src\main\AndroidManifest.xml:44:13-56
+	android:name
+		ADDED from C:\Users\Administrator\AndroidStudioProjects\MESMid\app\src\main\AndroidManifest.xml:40:13-50
+activity#com.yf.mesmid.SopActivity
+ADDED from C:\Users\Administrator\AndroidStudioProjects\MESMid\app\src\main\AndroidManifest.xml:49:9-57:20
+	android:screenOrientation
+		ADDED from C:\Users\Administrator\AndroidStudioProjects\MESMid\app\src\main\AndroidManifest.xml:52:13-50
+	android:label
+		ADDED from C:\Users\Administrator\AndroidStudioProjects\MESMid\app\src\main\AndroidManifest.xml:51:13-45
+	android:windowSoftInputMode
+		ADDED from C:\Users\Administrator\AndroidStudioProjects\MESMid\app\src\main\AndroidManifest.xml:53:13-72
+	android:configChanges
+		ADDED from C:\Users\Administrator\AndroidStudioProjects\MESMid\app\src\main\AndroidManifest.xml:55:13-48
+	android:name
+		ADDED from C:\Users\Administrator\AndroidStudioProjects\MESMid\app\src\main\AndroidManifest.xml:50:13-53
+activity#com.yf.mesmid.SopYuLangActivity
+ADDED from C:\Users\Administrator\AndroidStudioProjects\MESMid\app\src\main\AndroidManifest.xml:59:10-65:20
+	android:screenOrientation
+		ADDED from C:\Users\Administrator\AndroidStudioProjects\MESMid\app\src\main\AndroidManifest.xml:62:13-50
+	android:label
+		ADDED from C:\Users\Administrator\AndroidStudioProjects\MESMid\app\src\main\AndroidManifest.xml:61:13-45
+	android:windowSoftInputMode
+		ADDED from C:\Users\Administrator\AndroidStudioProjects\MESMid\app\src\main\AndroidManifest.xml:63:13-72
+	android:configChanges
+		ADDED from C:\Users\Administrator\AndroidStudioProjects\MESMid\app\src\main\AndroidManifest.xml:64:13-48
+	android:name
+		ADDED from C:\Users\Administrator\AndroidStudioProjects\MESMid\app\src\main\AndroidManifest.xml:60:13-59
+activity#com.yf.mesmid.XGActivity
+ADDED from C:\Users\Administrator\AndroidStudioProjects\MESMid\app\src\main\AndroidManifest.xml:67:9-73:20
+	android:screenOrientation
+		ADDED from C:\Users\Administrator\AndroidStudioProjects\MESMid\app\src\main\AndroidManifest.xml:70:13-50
+	android:label
+		ADDED from C:\Users\Administrator\AndroidStudioProjects\MESMid\app\src\main\AndroidManifest.xml:69:13-45
+	android:windowSoftInputMode
+		ADDED from C:\Users\Administrator\AndroidStudioProjects\MESMid\app\src\main\AndroidManifest.xml:71:13-72
+	android:configChanges
+		ADDED from C:\Users\Administrator\AndroidStudioProjects\MESMid\app\src\main\AndroidManifest.xml:72:13-48
+	android:name
+		ADDED from C:\Users\Administrator\AndroidStudioProjects\MESMid\app\src\main\AndroidManifest.xml:68:13-52
+activity#com.yf.mesmid.GWActivity
+ADDED from C:\Users\Administrator\AndroidStudioProjects\MESMid\app\src\main\AndroidManifest.xml:75:9-81:20
+	android:screenOrientation
+		ADDED from C:\Users\Administrator\AndroidStudioProjects\MESMid\app\src\main\AndroidManifest.xml:78:13-50
+	android:label
+		ADDED from C:\Users\Administrator\AndroidStudioProjects\MESMid\app\src\main\AndroidManifest.xml:77:13-45
+	android:windowSoftInputMode
+		ADDED from C:\Users\Administrator\AndroidStudioProjects\MESMid\app\src\main\AndroidManifest.xml:79:13-72
+	android:configChanges
+		ADDED from C:\Users\Administrator\AndroidStudioProjects\MESMid\app\src\main\AndroidManifest.xml:80:13-48
+	android:name
+		ADDED from C:\Users\Administrator\AndroidStudioProjects\MESMid\app\src\main\AndroidManifest.xml:76:13-52
+activity#com.yf.mesmid.WXActivity
+ADDED from C:\Users\Administrator\AndroidStudioProjects\MESMid\app\src\main\AndroidManifest.xml:83:9-90:20
+	android:screenOrientation
+		ADDED from C:\Users\Administrator\AndroidStudioProjects\MESMid\app\src\main\AndroidManifest.xml:86:13-50
+	android:label
+		ADDED from C:\Users\Administrator\AndroidStudioProjects\MESMid\app\src\main\AndroidManifest.xml:85:13-45
+	android:windowSoftInputMode
+		ADDED from C:\Users\Administrator\AndroidStudioProjects\MESMid\app\src\main\AndroidManifest.xml:87:13-72
+	android:configChanges
+		ADDED from C:\Users\Administrator\AndroidStudioProjects\MESMid\app\src\main\AndroidManifest.xml:88:13-48
+	android:name
+		ADDED from C:\Users\Administrator\AndroidStudioProjects\MESMid\app\src\main\AndroidManifest.xml:84:13-52
+activity#com.yf.mesmid.OQCActivity
+ADDED from C:\Users\Administrator\AndroidStudioProjects\MESMid\app\src\main\AndroidManifest.xml:92:9-99:20
+	android:screenOrientation
+		ADDED from C:\Users\Administrator\AndroidStudioProjects\MESMid\app\src\main\AndroidManifest.xml:95:13-50
+	android:label
+		ADDED from C:\Users\Administrator\AndroidStudioProjects\MESMid\app\src\main\AndroidManifest.xml:94:13-45
+	android:windowSoftInputMode
+		ADDED from C:\Users\Administrator\AndroidStudioProjects\MESMid\app\src\main\AndroidManifest.xml:96:13-72
+	android:configChanges
+		ADDED from C:\Users\Administrator\AndroidStudioProjects\MESMid\app\src\main\AndroidManifest.xml:97:13-48
+	android:name
+		ADDED from C:\Users\Administrator\AndroidStudioProjects\MESMid\app\src\main\AndroidManifest.xml:93:13-53
+activity#com.yf.mesmid.IQCActivity
+ADDED from C:\Users\Administrator\AndroidStudioProjects\MESMid\app\src\main\AndroidManifest.xml:100:9-107:20
+	android:screenOrientation
+		ADDED from C:\Users\Administrator\AndroidStudioProjects\MESMid\app\src\main\AndroidManifest.xml:103:13-50
+	android:label
+		ADDED from C:\Users\Administrator\AndroidStudioProjects\MESMid\app\src\main\AndroidManifest.xml:102:13-45
+	android:windowSoftInputMode
+		ADDED from C:\Users\Administrator\AndroidStudioProjects\MESMid\app\src\main\AndroidManifest.xml:104:13-72
+	android:configChanges
+		ADDED from C:\Users\Administrator\AndroidStudioProjects\MESMid\app\src\main\AndroidManifest.xml:105:13-48
+	android:name
+		ADDED from C:\Users\Administrator\AndroidStudioProjects\MESMid\app\src\main\AndroidManifest.xml:101:13-53
+activity#com.yf.mesmid.MainActivity
+ADDED from C:\Users\Administrator\AndroidStudioProjects\MESMid\app\src\main\AndroidManifest.xml:109:9-119:20
+	android:screenOrientation
+		ADDED from C:\Users\Administrator\AndroidStudioProjects\MESMid\app\src\main\AndroidManifest.xml:112:13-50
+	android:label
+		ADDED from C:\Users\Administrator\AndroidStudioProjects\MESMid\app\src\main\AndroidManifest.xml:111:13-45
+	android:windowSoftInputMode
+		ADDED from C:\Users\Administrator\AndroidStudioProjects\MESMid\app\src\main\AndroidManifest.xml:113:13-72
+	android:configChanges
+		ADDED from C:\Users\Administrator\AndroidStudioProjects\MESMid\app\src\main\AndroidManifest.xml:114:13-48
+	android:name
+		ADDED from C:\Users\Administrator\AndroidStudioProjects\MESMid\app\src\main\AndroidManifest.xml:110:13-54
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from C:\Users\Administrator\AndroidStudioProjects\MESMid\app\src\main\AndroidManifest.xml:115:13-118:29
+action#android.intent.action.MAIN
+ADDED from C:\Users\Administrator\AndroidStudioProjects\MESMid\app\src\main\AndroidManifest.xml:116:17-69
+	android:name
+		ADDED from C:\Users\Administrator\AndroidStudioProjects\MESMid\app\src\main\AndroidManifest.xml:116:25-66
+category#android.intent.category.LAUNCHER
+ADDED from C:\Users\Administrator\AndroidStudioProjects\MESMid\app\src\main\AndroidManifest.xml:117:17-77
+	android:name
+		ADDED from C:\Users\Administrator\AndroidStudioProjects\MESMid\app\src\main\AndroidManifest.xml:117:27-74
+activity#com.yf.mesmid.JobListActivity
+ADDED from C:\Users\Administrator\AndroidStudioProjects\MESMid\app\src\main\AndroidManifest.xml:121:9-128:20
+	android:screenOrientation
+		ADDED from C:\Users\Administrator\AndroidStudioProjects\MESMid\app\src\main\AndroidManifest.xml:124:13-50
+	android:label
+		ADDED from C:\Users\Administrator\AndroidStudioProjects\MESMid\app\src\main\AndroidManifest.xml:123:13-45
+	android:windowSoftInputMode
+		ADDED from C:\Users\Administrator\AndroidStudioProjects\MESMid\app\src\main\AndroidManifest.xml:125:13-72
+	android:configChanges
+		ADDED from C:\Users\Administrator\AndroidStudioProjects\MESMid\app\src\main\AndroidManifest.xml:127:13-48
+	android:name
+		ADDED from C:\Users\Administrator\AndroidStudioProjects\MESMid\app\src\main\AndroidManifest.xml:122:13-57
+activity#com.yf.mesupdate.NotificationUpdateActivity
+ADDED from C:\Users\Administrator\AndroidStudioProjects\MESMid\app\src\main\AndroidManifest.xml:129:9-131:20
+	android:theme
+		ADDED from C:\Users\Administrator\AndroidStudioProjects\MESMid\app\src\main\AndroidManifest.xml:130:13-56
+	android:name
+		ADDED from C:\Users\Administrator\AndroidStudioProjects\MESMid\app\src\main\AndroidManifest.xml:129:19-77
+service#com.yf.mesupdate.DownloadService
+ADDED from C:\Users\Administrator\AndroidStudioProjects\MESMid\app\src\main\AndroidManifest.xml:132:9-133:19
+	android:name
+		ADDED from C:\Users\Administrator\AndroidStudioProjects\MESMid\app\src\main\AndroidManifest.xml:132:18-65
+service#com.yf.mesmid.WifiService
+ADDED from C:\Users\Administrator\AndroidStudioProjects\MESMid\app\src\main\AndroidManifest.xml:134:9-135:19
+	android:name
+		ADDED from C:\Users\Administrator\AndroidStudioProjects\MESMid\app\src\main\AndroidManifest.xml:134:18-58
+uses-sdk
+INJECTED from C:\Users\Administrator\AndroidStudioProjects\MESMid\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from C:\Users\Administrator\AndroidStudioProjects\MESMid\app\src\main\AndroidManifest.xml
+INJECTED from C:\Users\Administrator\AndroidStudioProjects\MESMid\app\src\main\AndroidManifest.xml
+INJECTED from C:\Users\Administrator\AndroidStudioProjects\MESMid\app\src\main\AndroidManifest.xml
+INJECTED from C:\Users\Administrator\AndroidStudioProjects\MESMid\app\src\main\AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from C:\Users\Administrator\AndroidStudioProjects\MESMid\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\Administrator\AndroidStudioProjects\MESMid\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\Administrator\AndroidStudioProjects\MESMid\app\src\main\AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from C:\Users\Administrator\AndroidStudioProjects\MESMid\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\Administrator\AndroidStudioProjects\MESMid\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\Administrator\AndroidStudioProjects\MESMid\app\src\main\AndroidManifest.xml

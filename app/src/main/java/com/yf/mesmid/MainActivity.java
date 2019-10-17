@@ -47,6 +47,7 @@ public class MainActivity extends Activity{
 	private final String XGUUID1 = "5052455354880001";
 	private final String XGUUID2 = "5052455354880002";
 	private final String XGUUID3 = "5052455354880003";
+	private final String XG4 = "22cb5d6d5fc0e881";
 	
 	private final String GWUUID1 = "5052455354880011";
 	private final String GWUUID2 = "5052455354880012";
@@ -274,7 +275,7 @@ public class MainActivity extends Activity{
 			public void onClick(DialogInterface dialog, int which) {
 				//ת�����activity
 				Intent intent = new Intent();
-				if(UUID.equals(XGUUID1) || UUID.equals(XGUUID2) || UUID.equals(XGUUID3)){
+				if(UUID.equals(XGUUID1) || UUID.equals(XGUUID2) || UUID.equals(XGUUID3) || UUID.equals(XG4)){
 					intent.setClass(getApplicationContext(), XGActivity.class);
 					//intent.setClass(getApplicationContext(), JobListActivity.class);
 				}else if(UUID.equals(GWUUID1) || UUID.equals(GWUUID2) || UUID.equals(GWUUID3)){
@@ -320,7 +321,7 @@ public class MainActivity extends Activity{
 	//OQC��ʱ����
 	private void showUpdateDialog1() {
 		Intent intent = new Intent();
-		if(UUID.equals(XGUUID1) || UUID.equals(XGUUID2) || UUID.equals(XGUUID3)){
+		if(UUID.equals(XGUUID1) || UUID.equals(XGUUID2) || UUID.equals(XGUUID3) || UUID.equals(XG4)){
 			intent.setClass(getApplicationContext(), XGActivity.class);
 			//intent.setClass(getApplicationContext(), JobListActivity.class);
 		}else if(UUID.equals(GWUUID1) || UUID.equals(GWUUID2) || UUID.equals(GWUUID3)){
@@ -432,7 +433,7 @@ public class MainActivity extends Activity{
 				}else{
 					//ת�����activity
 					Intent intent = new Intent();
-					if(UUID.equals(XGUUID1) || UUID.equals(XGUUID2) || UUID.equals(XGUUID3)){
+					if(UUID.equals(XGUUID1) || UUID.equals(XGUUID2) || UUID.equals(XGUUID3) || UUID.equals(XG4)){
 						intent.setClass(getApplicationContext(), XGActivity.class);
 					}else if(UUID.equals(GWUUID1) || UUID.equals(GWUUID2) || UUID.equals(GWUUID3)){
 						intent.setClass(getApplicationContext(), GWActivity.class);

@@ -1,0 +1,303 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SopActivity" >
+    
+    <RelativeLayout
+    android:id="@+id/layoutmenu"
+    android:background="@android:drawable/title_bar"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal" 
+    android:layout_alignParentTop="true">
+
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/yf_201311191178" 
+        android:layout_centerVertical="true"/>
+
+    <TextView
+        android:id="@+id/text_itemname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="MESMid 维修" 
+        android:layout_gravity="center"
+        android:layout_toRightOf="@+id/imageView1"
+        android:textSize="26dip"
+        android:layout_centerVertical="true"/>
+
+    </RelativeLayout>
+        
+      <LinearLayout 
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:id="@+id/ll_radio"
+    android:layout_below="@+id/layoutmenu"
+    android:layout_marginTop="10dip"
+    android:focusable="false"
+    >
+          
+        <TextView
+        android:id="@+id/text_itemname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="维修站终端" 
+        android:textSize="36dip"
+        android:layout_gravity="center"
+        android:layout_centerVertical="true"/>
+        
+        <LinearLayout 
+		    android:layout_width="fill_parent"
+		    android:layout_height="wrap_content"
+		    android:orientation="horizontal"
+		    android:layout_marginTop="30dip">
+		    
+            <TextView
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:text="请扫描条码: "
+		        android:textSize="26dip"
+		        android:layout_weight="1"/>
+
+            <EditText
+	           android:id="@+id/edit_tm"
+	           android:layout_width="400dip"
+	           android:layout_height="wrap_content"
+	           android:layout_marginLeft="200dip"
+	           android:ems="8" 
+	           android:background="@android:drawable/edit_text"
+	           android:visibility="visible"
+	           android:editable="true"
+	           android:layout_weight="1"/>
+	    </LinearLayout>
+        
+         <LinearLayout 
+		    android:layout_width="fill_parent"
+		    android:layout_height="wrap_content"
+		    android:orientation="horizontal"
+		    android:layout_marginTop="10dip">
+		    
+            <TextView
+		        android:layout_width="100dip"
+		        android:layout_height="wrap_content"
+		        android:text="一阶: "
+		        android:textSize="26dip"
+		        android:layout_weight="1"/>
+            <EditText
+	           android:id="@+id/edit_yj"
+	           android:layout_width="400dip"
+	           android:layout_height="wrap_content"
+	           android:layout_marginLeft="0dip"
+	           android:visibility="visible"
+	           android:editable="true"
+	           android:layout_weight="10"/>
+            <TextView
+		        android:layout_width="150dip"
+		        android:layout_height="wrap_content"
+		        android:text="不良现象: "
+		        android:textSize="26dip"
+		        android:layout_weight="1"/>
+            <EditText
+	           android:id="@+id/edit_yjblxx"
+	           android:layout_width="400dip"
+	           android:layout_height="wrap_content"
+	           android:layout_marginLeft="0dip"
+	           android:visibility="visible"
+	           android:editable="true"
+	           android:layout_weight="10"/>
+	    </LinearLayout>
+        
+         <LinearLayout 
+		    android:layout_width="fill_parent"
+		    android:layout_height="wrap_content"
+		    android:orientation="horizontal"
+		    android:layout_marginTop="10dip">
+		    
+            <TextView
+		        android:layout_width="100dip"
+		        android:layout_height="wrap_content"
+		        android:text="二阶: "
+		        android:textSize="26dip"
+		        android:layout_weight="1"/>
+            <EditText
+	           android:id="@+id/edit_ej"
+	           android:layout_width="400dip"
+	           android:layout_height="wrap_content"
+	           android:layout_marginLeft="0dip"
+	           android:visibility="visible"
+	           android:editable="true"
+	           android:layout_weight="10"/>
+            <TextView
+		        android:layout_width="150dip"
+		        android:layout_height="wrap_content"
+		        android:text="不良现象: "
+		        android:textSize="26dip"
+		        android:layout_weight="1"/>
+            <EditText
+	           android:id="@+id/edit_ejblxx"
+	           android:layout_width="400dip"
+	           android:layout_height="wrap_content"
+	           android:layout_marginLeft="0dip"
+	           android:visibility="visible"
+	           android:editable="true"
+	           android:layout_weight="10"/>
+	    </LinearLayout>
+	    
+        <LinearLayout 
+		    android:layout_width="fill_parent"
+		    android:layout_height="wrap_content"
+		    android:orientation="horizontal"
+		    android:layout_marginTop="10dip">
+		    
+            <TextView
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:text="PCBA版型:   "
+		        android:textSize="26dip"
+		        android:layout_weight="1"/>
+            <EditText
+	           android:id="@+id/edit_pcbabx"
+	           android:layout_width="400dip"
+	           android:layout_height="wrap_content"
+	           android:layout_marginLeft="200dip"
+	           android:ems="8" 
+	           android:background="@android:drawable/edit_text"
+	           android:visibility="visible"
+	           android:editable="true"
+	           android:layout_weight="1"/>
+	    </LinearLayout>
+	    
+        <LinearLayout 
+		    android:layout_width="fill_parent"
+		    android:layout_height="wrap_content"
+		    android:orientation="horizontal"
+		    android:layout_marginTop="10dip">
+		    
+            <TextView
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:text="操作人员:     "
+		        android:textSize="26dip"
+		        android:layout_weight="1"/>
+            <EditText
+	           android:id="@+id/edit_czry"
+	           android:layout_width="400dip"
+	           android:layout_height="wrap_content"
+	           android:layout_marginLeft="200dip"
+	           android:ems="8" 
+	           android:background="@android:drawable/edit_text"
+	           android:visibility="visible"
+	           android:editable="true"
+	           android:layout_weight="1"/>
+	    </LinearLayout>
+	    
+        <LinearLayout 
+		    android:layout_width="fill_parent"
+		    android:layout_height="wrap_content"
+		    android:orientation="horizontal"
+		    android:layout_marginTop="10dip">
+		    
+            <TextView
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:text="不良原因:     "
+		        android:textSize="26dip"
+		        android:layout_weight="1"/>
+            <EditText
+	           android:id="@+id/edit_blyy"
+	           android:layout_width="400dip"
+	           android:layout_height="wrap_content"
+	           android:layout_marginLeft="200dip"
+	           android:ems="8" 
+	           android:background="@android:drawable/edit_text"
+	           android:visibility="visible"
+	           android:editable="true"
+	           android:layout_weight="1"/>
+	    </LinearLayout>
+	    
+        <LinearLayout 
+		    android:layout_width="fill_parent"
+		    android:layout_height="wrap_content"
+		    android:orientation="horizontal"
+		    android:layout_marginTop="10dip">
+		    
+            <TextView
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:text="维修措施:     "
+		        android:textSize="26dip"
+		        android:layout_weight="1"/>
+            <EditText
+	           android:id="@+id/edit_wxcs"
+	           android:layout_width="400dip"
+	           android:layout_height="wrap_content"
+	           android:layout_marginLeft="200dip"
+	           android:ems="8" 
+	           android:background="@android:drawable/edit_text"
+	           android:visibility="visible"
+	           android:editable="true"
+	           android:layout_weight="1"/>
+	    </LinearLayout>
+	    
+        <LinearLayout 
+		    android:layout_width="fill_parent"
+		    android:layout_height="wrap_content"
+		    android:orientation="horizontal"
+		    android:layout_marginTop="10dip">
+		    
+            <TextView
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:text="难度系数:     "
+		        android:textSize="26dip"
+		        android:layout_weight="1"/>
+            
+            <Spinner
+	           android:id="@+id/spin_ndxs"
+	           android:layout_width="400dip"
+	           android:layout_height="wrap_content"
+	           android:layout_marginLeft="200dip"
+	           android:visibility="visible"
+	           android:editable="true"
+	           android:layout_weight="1"/>
+	    </LinearLayout>
+	    
+         <LinearLayout 
+		    android:layout_width="fill_parent"
+		    android:layout_height="wrap_content"
+		    android:orientation="horizontal"
+		    android:layout_marginTop="10dip">
+		    
+            <TextView
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:text="责任部门:     "
+		        android:textSize="26dip"
+		        android:layout_weight="1"/>
+            
+            <Spinner
+	           android:id="@+id/spin_zrbm"
+	           android:layout_width="400dip"
+	           android:layout_height="wrap_content"
+	           android:layout_marginLeft="200dip"
+	           android:visibility="visible"
+	           android:editable="true"
+	           android:layout_weight="1"/>
+	    </LinearLayout>
+	    
+         <Button
+          android:id="@+id/btn_save"
+          android:layout_width="140dip"
+          android:layout_height="90dip"
+          android:layout_alignParentBottom="true"
+          android:text="保  存" 
+          android:layout_marginTop="20dip"
+          android:textSize="32dip"
+          android:layout_gravity="center"/>
+    </LinearLayout>
+
+</RelativeLayout>

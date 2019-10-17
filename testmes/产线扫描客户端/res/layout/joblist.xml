@@ -1,0 +1,157 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".JobListActivity" >
+
+    <RelativeLayout
+    android:id="@+id/layoutmenu"
+    android:background="@android:drawable/title_bar"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal" 
+    android:layout_alignParentTop="true">
+
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/yf_201311191178" 
+        android:layout_centerVertical="true"/>
+
+    <TextView
+        android:id="@+id/text_itemname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="JobOrder" 
+        android:layout_gravity="center"
+        android:layout_toRightOf="@+id/imageView1"
+        android:textSize="26dip"
+        android:textColor="#ff0000"
+        android:layout_centerVertical="true"/>
+
+    <EditText
+            android:id="@+id/edit_input"
+            android:layout_width="400dip"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="0dp"
+            android:ems="8" 
+            android:background="@android:drawable/edit_text"
+            android:visibility="visible"
+            android:editable="true"
+            >
+            
+            <requestFocus />
+    </EditText>
+    
+    <Button
+        android:id="@+id/btn_requery"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20dip"
+        android:text="重新查询"
+        android:layout_marginLeft="60dip"
+        android:layout_toRightOf="@+id/text_itemname"
+        android:layout_centerVertical="true"
+        android:gravity="center"/>
+    
+    <Button
+        android:id="@+id/btn_keyboard"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20dip"
+        android:layout_marginRight="60dip"
+        android:text="小键盘"
+        android:layout_toLeftOf="@+id/btn_yulan"
+        android:layout_centerVertical="true"
+        android:gravity="center"/>
+    
+    <Button
+        android:id="@+id/btn_yulan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20dip"
+        android:layout_marginRight="60dip"
+        android:text="预览SOP"
+        android:layout_toLeftOf="@+id/btn_save"
+        android:layout_centerVertical="true"
+        android:gravity="center"/>
+    
+    <Button
+        android:id="@+id/btn_save"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20dip"
+        android:text="确    定"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:gravity="center"/>
+
+    </RelativeLayout>
+    
+    <ListView
+        android:id="@+id/listView_joborder"
+        android:layout_width="588dip"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/layoutmenu"
+        >
+    </ListView>
+    
+    
+    <RelativeLayout 
+        android:layout_width="588dip"
+        android:layout_height="fill_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/layoutmenu"
+        android:visibility="gone"
+        android:id="@+id/Relative_barcoderesult">
+        <TextView
+            android:id="@+id/Text_barcoderesult"
+            style="@style/AppExTheme"
+            android:layout_width="match_parent"
+            android:layout_height="550dip"
+            android:layout_marginRight="0dip"
+            android:text="请扫描料号"
+            android:textSize="28dip" 
+            android:background="@android:drawable/edit_text"
+            android:textColor="#00ff00"/>
+        <Button
+        android:id="@+id/btn_cancel"
+        android:layout_width="160dip"
+        android:layout_height="80dip"
+        android:textSize="28dip"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="10dip"
+        android:layout_below="@+id/Text_barcoderesult"
+        android:text="取  消"
+        android:layout_centerVertical="true"
+        android:gravity="center"/>
+    </RelativeLayout>
+    <ListView
+        android:id="@+id/listView_procedure"
+        android:layout_width="188dip"
+        android:layout_height="wrap_content"
+        android:layout_toLeftOf="@+id/text_exist"
+        android:layout_marginRight="495dip"
+        android:layout_below="@+id/layoutmenu">
+    </ListView>
+    <ListView
+        android:id="@+id/listView_material"
+        android:layout_width="485dip"
+        android:layout_height="wrap_content"
+        android:layout_toLeftOf="@+id/text_exist"
+        android:layout_marginLeft="10dip"
+        android:layout_below="@+id/layoutmenu">
+    </ListView>
+    
+    <TextView
+        android:id="@+id/text_exist"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="" 
+        android:layout_gravity="center"
+        android:layout_alignParentRight="true"/>
+    
+</RelativeLayout>

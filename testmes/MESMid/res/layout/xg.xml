@@ -1,0 +1,138 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SopActivity" >
+    
+    <RelativeLayout
+    android:id="@+id/layoutmenu"
+    android:background="@android:drawable/title_bar"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal" 
+    android:layout_alignParentTop="true"
+    >
+
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/yf_201311191178" 
+        android:layout_centerVertical="true"/>
+
+    <TextView
+        android:id="@+id/text_itemname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="MESMid 锡膏" 
+        android:layout_gravity="center"
+        android:layout_toRightOf="@+id/imageView1"
+        android:textSize="26dip"
+        android:layout_centerVertical="true"/>
+    
+     <EditText
+            android:id="@+id/edit_xg"
+            android:layout_width="400dip"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="0dp"
+            android:ems="8" 
+            android:background="@android:drawable/edit_text"
+            android:visibility="visible"
+            android:editable="true"
+            >
+            
+            <requestFocus />
+    </EditText>
+
+    </RelativeLayout>
+        
+        <LinearLayout 
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:orientation="horizontal"
+		    android:id="@+id/ll_radio"
+		    android:layout_below="@+id/layoutmenu"
+		    android:layout_marginTop="40dip"
+		    android:layout_centerHorizontal="true"
+		    android:focusable="false">
+          
+        <RadioGroup 
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <RadioButton
+                android:id="@+id/radioButton_rbx"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="入冰箱" 
+                android:textSize="20dip"
+                />
+                
+	        <RadioButton
+                android:id="@+id/radioButton_hw"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="回温" 
+                android:textSize="20dip"
+                android:layout_marginLeft="40dip"/>
+	        
+	        <RadioButton
+                android:id="@+id/radioButton_jqjb"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="机器搅拌"
+                android:textSize="20dip"
+                android:layout_marginLeft="40dip"/>
+	        <RadioButton
+                android:id="@+id/radioButton_rgjb"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="人工搅拌"
+                android:textSize="20dip"
+                android:layout_marginLeft="40dip"
+                android:visibility="gone"/>
+	        <RadioButton
+                android:id="@+id/radioButton_cx"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20dip"
+                android:layout_marginLeft="40dip"
+                android:text="查询" />
+        </RadioGroup>
+        
+        
+        </LinearLayout>
+        
+        <LinearLayout
+            android:id="@+id/ll_body"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/ll_radio"
+            android:orientation="vertical" 
+            android:visibility="visible"
+            android:focusable="false"
+            android:layout_marginTop="40dip">
+            
+            <TextView
+            android:id="@+id/Text_xginfo"
+            style="@style/AppExTheme"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:text="返回信息"
+            android:textSize="22dip" 
+            android:background="@android:drawable/edit_text"
+            android:textColor="#00ff00"/>
+            
+        </LinearLayout>
+        
+        <ListView
+        android:id="@+id/listView_xg"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/ll_body"
+        >
+        </ListView>
+
+</RelativeLayout>

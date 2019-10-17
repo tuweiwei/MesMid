@@ -1,0 +1,56 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SopActivity" >
+    
+    <RelativeLayout
+    android:id="@+id/layoutmenu"
+    android:background="@android:drawable/title_bar"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal" 
+    android:layout_alignParentTop="true">
+
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/yf_201311191178" 
+        android:layout_centerVertical="true"/>
+
+    <TextView
+        android:id="@+id/text_itemname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="MESMid 主页" 
+        android:layout_gravity="center"
+        android:layout_toRightOf="@+id/imageView1"
+        android:textSize="26dip"
+        android:layout_centerVertical="true"/>
+
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/btn_sc"
+        android:layout_width="180dip"
+        android:layout_height="120dip"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:text="生  产" 
+        android:textSize="32dip"
+        android:visibility="gone"/>
+
+    <Button
+        android:id="@+id/btn_cj"
+        android:layout_width="180dip"
+        android:layout_height="120dip"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_alignRight="@+id/button1"
+        android:layout_below="@+id/btn_sc"
+        android:text="售  后" 
+        android:textSize="32dip"
+        android:layout_marginTop="10dip"
+        android:visibility="gone"></Button>
+</RelativeLayout>

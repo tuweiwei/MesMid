@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal" >
+
+    <TextView
+        android:id="@+id/textItem_number"
+        android:layout_width="60dip"
+        android:layout_height="wrap_content"
+        android:text="序    号" 
+        android:textColor="#000000"
+        android:background="@android:drawable/edit_text"
+        android:layout_gravity="center"
+        android:gravity="center"/>
+    
+    <TextView
+        android:id="@+id/textItem_wxyy"
+        android:layout_width="120dip"
+        android:layout_height="wrap_content"
+        android:text="维修原因" 
+        android:textColor="#000000"
+        android:background="@android:drawable/edit_text"
+        android:layout_gravity="center"
+        android:gravity="center"/>
+
+     <TextView
+        android:id="@+id/textItem_wxcs"
+        android:layout_width="120dip"
+        android:layout_height="wrap_content"
+        android:text="维修措施" 
+        android:textColor="#000000"
+        android:background="@android:drawable/edit_text"
+        android:layout_gravity="center"
+        android:gravity="center"/>
+    
+    <TextView
+        android:id="@+id/textItem_wxry"
+        android:layout_width="120dip"
+        android:layout_height="wrap_content"
+        android:text="维修人员" 
+        android:textColor="#000000"
+        android:background="@android:drawable/edit_text"
+        android:layout_gravity="center"
+        android:gravity="center"/>
+    
+    <TextView
+        android:id="@+id/textItem_wxsj"
+        android:layout_width="200dip"
+        android:layout_height="wrap_content"
+        android:text="维修时间" 
+        android:textColor="#000000"
+        android:background="@android:drawable/edit_text"
+        android:layout_gravity="center"
+        android:gravity="center"/>
+    
+</LinearLayout>

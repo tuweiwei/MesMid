@@ -1,5 +1,6 @@
 package com.yf.mesmid.activity;
 
+import com.yf.mesmid.consts.MyConsts;
 import com.yf.mesmid.db.DatabaseOper;
 import com.yf.mesmid.R;
 import com.yf.mesmid.util.ScanSound;
@@ -10,7 +11,6 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.os.Environment;
 import android.os.Handler;
 import android.os.Message;
 import android.text.Editable;
@@ -21,22 +21,17 @@ import android.webkit.WebView;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import java.lang.ref.WeakReference;
+
 public class IQCActivity extends Activity{
 	private ProgressDialog mDialog;
 	private TextView TextOpertips = null;
 	private WebView SOPview = null;
 	private boolean bEnter = false;
-	
-	private final String ConfigPath = Environment.getExternalStorageDirectory().getPath()+"/MESConfig.ini";
-	private final int ERROR_NOEXIT = 100;
-	private final int CONNECT_SUCCESS = 101;
-	private final int SCANBARCODE_SUCCESS = 102;
-	
 	private String DeviceID = "";
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.iqc);
 		mDialog = new ProgressDialog(this);
@@ -101,7 +96,13 @@ public class IQCActivity extends Activity{
 		Intent intent = new Intent(getApplicationContext(), UserActivity.class);
 		startActivity(intent);
 	}
-    
+
+	@Override
+	protected void onDestroy() {
+		handler.removeCallbacksAndMessages(null);
+		super.onDestroy();
+	}
+
 	private void SendDataMessage(int Code, Object Data, int delay){
 		Message msg = handler.obtainMessage();
 		msg.what = Code;
@@ -109,37 +110,47 @@ public class IQCActivity extends Activity{
 		handler.sendMessageDelayed(msg, delay*1000);
 	}
 	
-	Handler handler = new Handler(){
-		public void handleMessage(android.os.Message msg) {
+	Handler handler = new MySafeHandler(this);
+
+	private static class MySafeHandler extends Handler{
+		private WeakReference<IQCActivity> ref;
+
+		public MySafeHandler(IQCActivity ref){
+			this.ref = new WeakReference<IQCActivity>(ref);
+		}
+
+		@Override
+		public void handleMessage(Message msg) {
 			int Code = msg.what;
-			if(Code == ERROR_NOEXIT){
+			IQCActivity activity = ref.get();
+			if(Code == MyConsts.ERROR_NOEXIT){
 				IOQCInfo info = (IOQCInfo)msg.obj;
-				mDialog.cancel();
-				TextOpertips.setTextColor(Color.RED);
-				TextOpertips.setText(info.Getinfo());
-				TextOpertips.setVisibility(View.VISIBLE);
-				SOPview.setVisibility(View.GONE);
+				activity.mDialog.cancel();
+				activity.TextOpertips.setTextColor(Color.RED);
+				//TextOpertips.setText(info.Getinfo());
+				activity.TextOpertips.setVisibility(View.VISIBLE);
+				activity.SOPview.setVisibility(View.GONE);
 			}
-			else if(Code == CONNECT_SUCCESS){
-				mDialog.setMessage((String)msg.obj);
+			else if(Code == MyConsts.CONNECT_SUCCESS){
+				activity.mDialog.setMessage((String)msg.obj);
 			}
 
-			else if(Code == SCANBARCODE_SUCCESS){
+			else if(Code == MyConsts.SCANBARCODE_SUCCESS){
 				IOQCInfo info = (IOQCInfo)msg.obj;
-				mDialog.setMessage(info.Getinfo());
-				mDialog.cancel();
-				TextOpertips.setTextColor(Color.BLUE);
-				TextOpertips.setText("ɨ��ɹ�");
-				TextOpertips.setVisibility(View.GONE);
+				//mDialog.setMessage(info.Getinfo());
+				activity.mDialog.cancel();
+				activity.TextOpertips.setTextColor(Color.BLUE);
+				activity.TextOpertips.setText("ɨ��ɹ�");
+				activity.TextOpertips.setVisibility(View.GONE);
 				int itrim = DatabaseOper.Address.indexOf(":", 0);
 				String IP = DatabaseOper.Address.substring(0, itrim);
 				//SOPview.loadUrl("http://"+IP+info.Getinfo());
-				SOPview.loadUrl(info.Getinfo());
+				//SOPview.loadUrl(info.Getinfo());
 				//SOPview.loadUrl("http://192.168.29.3/UploadWLSOP/2014-12-11 154542/index.html");
-				SOPview.setVisibility(View.VISIBLE);
+				activity.SOPview.setVisibility(View.VISIBLE);
 			}
-		};
-	};
+		}
+	}
 	
 	class RScan implements Runnable{
 		private String barcode;

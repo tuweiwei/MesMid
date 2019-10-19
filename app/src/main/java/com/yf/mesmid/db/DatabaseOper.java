@@ -1,6 +1,5 @@
 package com.yf.mesmid.db;
 
-import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -8,18 +7,14 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.yf.mesmid.activity.Material;
 import com.yf.mesmid.activity.ScanResult;
 import com.yf.mesmid.entity.IOQCInfo;
-import com.yf.mesmid.entity.JobOrder;
-import com.yf.mesmid.entity.Procedure;
 import com.yf.mesmid.entity.SopInfo;
 import com.yf.mesmid.entity.WXList;
 import com.yf.mesmid.entity.XGInfo;
 import com.yf.mesmid.entity.UpdataInfo;
 
 import android.database.SQLException;
-import android.os.Environment;
 import android.util.Log;
 
 public class DatabaseOper {

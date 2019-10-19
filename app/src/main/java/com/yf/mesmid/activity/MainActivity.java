@@ -5,7 +5,6 @@ import java.sql.SQLException;
 import com.yf.mesmid.db.DatabaseOper;
 import com.yf.mesmid.R;
 import com.yf.mesmid.service.WifiService;
-import com.yf.mesmid.app.MyApp;
 import com.yf.mesmid.entity.UpdataInfo;
 
 import android.app.Activity;
@@ -19,12 +18,8 @@ import android.content.IntentFilter;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
-import android.os.Environment;
 import android.os.Handler;
 import android.os.Message;
-import android.provider.Settings;
-import android.text.TextUtils;
-import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -32,29 +27,11 @@ import android.widget.Button;
 public class MainActivity extends Activity{
 	private ProgressDialog mDialog;
 	private AlertDialog mErrorDialog;
-	
-	private final String ConfigPath = Environment.getExternalStorageDirectory().getPath()+"/MESConfig.ini";
-	private final int GET_UPDATEINFO = 1;
-	private final int ERROR_NOEXIT = 100;
-	private final int CONNECT_SUCCESS = 101;
-	
-	private final int ERRORDIALOG_CANCEL = 120;
-	private final int UPDATE = 130;
-	private final int UPDATE_ERROR = 131;
-	
-	private final String STRING_UPDATE = "APP";
-	private final String STRING_NOUPDATE = "APP";
-
 	private Button Btn_sc = null;
 	private Button Btn_cj = null;
-	
 	private WIFIBroadcastReceiver WifiReceiver;
-	
-	private MyApp app;
 	private String curversion;
 	private UpdataInfo info;
-	
-	private String UUID;
 	private boolean djjr = false;
 	private int gdxh = 0;
 	private int gxxh = 0;
@@ -99,10 +76,8 @@ public class MainActivity extends Activity{
 			}
 		});
 
-		app = (MyApp) getApplication();
 		curversion = getVersion();
 		mDialog = new ProgressDialog(this);
-		UUID = getMyUUID();
 
 		DatabaseOper.SC_MODE=DatabaseOper.ZC_MODE;
 		DatabaseOper.GX_MODE=DatabaseOper.ZC_MODE;
@@ -132,12 +107,6 @@ public class MainActivity extends Activity{
 			startService(intent);
 		}
 	}
-	
-	private String getMyUUID(){
-    	String UUID = Settings.System.getString(getContentResolver(), Settings.Secure.ANDROID_ID);
-        String ret=(!TextUtils.isEmpty(UUID) ? UUID : null);
-        return ret;
-    }
 
 	private String getVersion() {
 		try {
@@ -243,10 +212,7 @@ public class MainActivity extends Activity{
 	@Override
 	protected void onDestroy() {
 		super.onDestroy();
-		if(!DatabaseOper.ConnMode.equals(DatabaseOper.WIRE_CONN)){
-			unregisterReceiver(WifiReceiver);
-		}
-	
+		unregisterReceiver(WifiReceiver);
 	}
 	
 	class RScan implements Runnable{

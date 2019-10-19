@@ -19,8 +19,11 @@ import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+/**
+ * @author tuwei
+ */
 public class NotificationUpdateActivity extends Activity {
-	private Button btn_cancel;// btn_update,
+	private Button btn_cancel;
 	private TextView tv_progress;
 	private DownloadBinder binder;
 	private boolean isBinded;
@@ -30,7 +33,6 @@ public class NotificationUpdateActivity extends Activity {
 	private boolean isDestroy = true;
 	private MyApp app;
 
-	/** Called when the activity is first created. */
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -45,7 +47,6 @@ public class NotificationUpdateActivity extends Activity {
 
 			@Override
 			public void onClick(View v) {
-				// TODO Auto-generated method stub
 				binder.cancel();
 				binder.cancelNotification();
 				finish();
@@ -59,13 +60,11 @@ public class NotificationUpdateActivity extends Activity {
 
 		@Override
 		public void onServiceDisconnected(ComponentName name) {
-			// TODO Auto-generated method stub
 			isBinded = false;
 		}
 
 		@Override
 		public void onServiceConnected(ComponentName name, IBinder service) {
-			// TODO Auto-generated method stub
 			binder = (DownloadBinder) service;
 			System.out.println("服务启动!!!");
 			// 开始下载
@@ -77,7 +76,6 @@ public class NotificationUpdateActivity extends Activity {
 
 	@Override
 	protected void onResume() {
-		// TODO Auto-generated method stub
 		super.onResume();
 		if (isDestroy && app.isDownload()) {
 			Intent it = new Intent(NotificationUpdateActivity.this, DownloadService.class);
@@ -90,7 +88,6 @@ public class NotificationUpdateActivity extends Activity {
 
 	@Override
 	protected void onNewIntent(Intent intent) {
-		// TODO Auto-generated method stub
 		super.onNewIntent(intent);
 		if (isDestroy && app.isDownload()) {
 			Intent it = new Intent(NotificationUpdateActivity.this, DownloadService.class);
@@ -102,21 +99,17 @@ public class NotificationUpdateActivity extends Activity {
 
 	@Override
 	protected void onStart() {
-		// TODO Auto-generated method stub
 		super.onStart();
-
 	}
 
 	@Override
 	protected void onPause() {
-		// TODO Auto-generated method stub
 		super.onPause();
 		System.out.println(" notification  onPause");
 	}
 
 	@Override
 	protected void onStop() {
-		// TODO Auto-generated method stub
 		super.onStop();
 		isDestroy = false;
 		System.out.println(" notification  onStop");
@@ -140,7 +133,6 @@ public class NotificationUpdateActivity extends Activity {
 
 		@Override
 		public void OnBackResult(Object result) {
-			// TODO Auto-generated method stub
 			if ("finish".equals(result)) {
 				finish();
 				return;
@@ -159,11 +151,10 @@ public class NotificationUpdateActivity extends Activity {
 		@Override
 		public void handleMessage(android.os.Message msg) {
 			tv_progress.setText("当前进度 ： " + msg.what + "%");
-
 		};
 	};
 
 	public interface ICallbackResult {
-		public void OnBackResult(Object result);
+		void OnBackResult(Object result);
 	}
 }

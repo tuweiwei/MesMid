@@ -1,4 +1,4 @@
-package com.yf.mesmid.activity;
+package com.yf.mesmid.ui.activity;
 
 public class ScanResult {
 	private String indexback;

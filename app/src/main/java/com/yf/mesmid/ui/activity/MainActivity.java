@@ -1,7 +1,8 @@
-package com.yf.mesmid.activity;
+package com.yf.mesmid.ui.activity;
 
 import java.sql.SQLException;
 
+import com.yf.mesmid.consts.MyConsts;
 import com.yf.mesmid.db.DatabaseOper;
 import com.yf.mesmid.R;
 import com.yf.mesmid.service.WifiService;
@@ -35,7 +36,7 @@ public class MainActivity extends Activity{
 	private boolean djjr = false;
 	private int gdxh = 0;
 	private int gxxh = 0;
-	private String user = "";
+	private String user;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -90,10 +91,10 @@ public class MainActivity extends Activity{
 			user = getIntent().getStringExtra("user");
 		}
 		
-		DatabaseOper.InitDatabaseConfig(ConfigPath);
+		DatabaseOper.InitDatabaseConfig(MyConsts.ConfigPath);
 
 		if(DatabaseOper.ConnMode.equals(DatabaseOper.WIRE_CONN)){
-			RScan rScan = new RScan(GET_UPDATEINFO);
+			RScan rScan = new RScan(MyConsts.GET_UPDATEINFO);
 			Thread thread = new Thread(rScan);
 			thread.start();
 		} else{
@@ -139,10 +140,10 @@ public class MainActivity extends Activity{
 			@Override
 			public void onClick(DialogInterface dialog, int which) {
 				if(null == info.getApkurl()){
-					SendDataMessage(UPDATE_ERROR, "APK", 0);
+					SendDataMessage(MyConsts.UPDATE_ERROR, "APK", 0);
 					return;
 				}
-				app.setDownload(true);
+
 				Intent it = new Intent(MainActivity.this, NotificationUpdateActivity.class);
 				it.putExtra("apkurl", info.getApkurl());
 				startActivity(it);
@@ -168,7 +169,7 @@ public class MainActivity extends Activity{
 		build.setMessage(strInfo+"\n\n");
 		mErrorDialog = build.create();
 		mErrorDialog.show();
-		SendDataMessage(ERRORDIALOG_CANCEL, "", 3);
+		SendDataMessage(MyConsts.ERRORDIALOG_CANCEL, "", 3);
 	}
 	
 	private void SendDataMessage(int Code, Object Data, int delay){
@@ -182,19 +183,19 @@ public class MainActivity extends Activity{
 		@Override
 		public void handleMessage(android.os.Message msg) {
 			int Code = msg.what;
-			if(Code == ERROR_NOEXIT){
+			if(Code == MyConsts.ERROR_NOEXIT){
 				mDialog.cancel();
 				TipError((String)msg.obj, false);
 			}
-			else if(Code == CONNECT_SUCCESS){
+			else if(Code == MyConsts.CONNECT_SUCCESS){
 				mDialog.setMessage((String)msg.obj);
 			}
-			else if(ERRORDIALOG_CANCEL == Code){
+			else if(MyConsts.ERRORDIALOG_CANCEL == Code){
 				mErrorDialog.cancel();
 			}
-			else if(UPDATE == Code){
+			else if(MyConsts.UPDATE == Code){
 				mDialog.setMessage("");
-				if(STRING_UPDATE.equals((String)msg.obj)) {
+				if(MyConsts.STRING_UPDATE.equals((String)msg.obj)) {
 					showUpdateDialog();
 				}else{
 					Intent intent = new Intent();
@@ -203,7 +204,7 @@ public class MainActivity extends Activity{
 					finish();
 				}
 			}
-			else if(UPDATE_ERROR == Code){
+			else if(MyConsts.UPDATE_ERROR == Code){
 				TipError((String)msg.obj, false);
 			}
 		}
@@ -224,22 +225,22 @@ public class MainActivity extends Activity{
 		public void run() {
 			if(null == DatabaseOper.con) {
 				if ( ! DatabaseOper.Connect() ) {
-					SendDataMessage(ERROR_NOEXIT, "", 0);
+					SendDataMessage(MyConsts.ERROR_NOEXIT, "", 0);
 					return;
-				}else SendDataMessage(CONNECT_SUCCESS, "...", 0);
+				}else SendDataMessage(MyConsts.CONNECT_SUCCESS, "...", 0);
 			}
-			if(GET_UPDATEINFO == query_mode) {
-				SendDataMessage(CONNECT_SUCCESS, "...", 0);
+			if(MyConsts.GET_UPDATEINFO == query_mode) {
+				SendDataMessage(MyConsts.CONNECT_SUCCESS, "...", 0);
 				UpdataInfo updatainfo = DatabaseOper.GetUpdateInfo();
 				if(null == updatainfo){
-					SendDataMessage(ERROR_NOEXIT, "", 0);
+					SendDataMessage(MyConsts.ERROR_NOEXIT, "", 0);
 				}else{
 					info = updatainfo;
 					String strUpdate;
 					if(isNeedUpdate(curversion)){
-						strUpdate = STRING_UPDATE;
-					}else strUpdate = STRING_NOUPDATE;
-					SendDataMessage(UPDATE, strUpdate, 0);
+						strUpdate = MyConsts.STRING_UPDATE;
+					}else strUpdate = MyConsts.STRING_NOUPDATE;
+					SendDataMessage(MyConsts.UPDATE, strUpdate, 0);
 				}
 			}
 			
@@ -254,7 +255,7 @@ public class MainActivity extends Activity{
 			String action = intent.getAction();
 			if(action.equals(DatabaseOper.FirstWIFI_MSG)){
 				mDialog.setMessage("...");
-				RScan rScan = new RScan(GET_UPDATEINFO);
+				RScan rScan = new RScan(MyConsts.GET_UPDATEINFO);
 				Thread thread = new Thread(rScan);
 				thread.start();
 			}else if(action.equals(DatabaseOper.RepeatWIFI_MSG)){

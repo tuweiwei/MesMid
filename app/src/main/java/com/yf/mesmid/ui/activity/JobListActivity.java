@@ -1,4 +1,4 @@
-package com.yf.mesmid.activity;
+package com.yf.mesmid.ui.activity;
 
 import java.sql.SQLException;
 import java.util.ArrayList;

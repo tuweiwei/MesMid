@@ -24,7 +24,7 @@ public class Material {
     	bEnter = false;
     }
     
-    Material(int number, String material, String pmgg, String materialofcontrol, 
+    public Material(int number, String material, String pmgg, String materialofcontrol,
     		String batchkeymaterial, String clgkztbz, String pcgkztbz)
     {
     	this.number = number;

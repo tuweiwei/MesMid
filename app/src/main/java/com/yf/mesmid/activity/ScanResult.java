@@ -6,7 +6,7 @@ public class ScanResult {
 	private String moinfo;
 	private String filename;
 	
-	ScanResult(String indexback, String infoback
+	public ScanResult(String indexback, String infoback
 			,String moinfo ,String filename)
 	{
 		this.indexback = indexback;

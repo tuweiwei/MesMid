@@ -1,6 +1,8 @@
-package com.yf.mesmid.service;
+package com.yf.mesmid.activity;
 
 import com.yf.mesmid.R;
+import com.yf.mesmid.app.MyApp;
+import com.yf.mesmid.service.DownloadService;
 import com.yf.mesmid.service.DownloadService.DownloadBinder;
 
 import android.app.Activity;
@@ -25,7 +27,6 @@ public class NotificationUpdateActivity extends Activity {
 	private ProgressBar mProgressBar;
 	// 获取到下载url后，直接复制给MapApp,里面的全局变量
 	private String ApkUrl;
-	//
 	private boolean isDestroy = true;
 	private MyApp app;
 
@@ -155,6 +156,7 @@ public class NotificationUpdateActivity extends Activity {
 	};
 
 	private Handler mHandler = new Handler() {
+		@Override
 		public void handleMessage(android.os.Message msg) {
 			tv_progress.setText("当前进度 ： " + msg.what + "%");
 

@@ -10,7 +10,8 @@ import java.net.URL;
 
 import com.yf.mesmid.activity.JobListActivity;
 import com.yf.mesmid.R;
-import com.yf.mesmid.service.NotificationUpdateActivity.ICallbackResult;
+import com.yf.mesmid.app.MyApp;
+import com.yf.mesmid.activity.NotificationUpdateActivity.ICallbackResult;
 
 import android.app.Notification;
 import android.app.NotificationManager;

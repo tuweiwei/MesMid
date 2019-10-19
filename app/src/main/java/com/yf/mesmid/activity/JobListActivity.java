@@ -10,9 +10,8 @@ import com.yf.mesmid.R;
 import com.yf.mesmid.util.ScanSound;
 import com.yf.mesmid.service.WifiService;
 import com.yf.mesmid.entity.JobOrder;
-import com.yf.mesmid.service.MyApp;
-import com.yf.mesmid.service.NotificationUpdateActivity;
-import com.yf.mesmid.service.UpdataInfo;
+import com.yf.mesmid.app.MyApp;
+import com.yf.mesmid.entity.UpdataInfo;
 
 import android.app.Activity;
 import android.app.AlertDialog;

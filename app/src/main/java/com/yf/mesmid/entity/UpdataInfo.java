@@ -1,4 +1,4 @@
-package com.yf.mesmid.service;
+package com.yf.mesmid.entity;
 
 public class UpdataInfo {
 	private String version;

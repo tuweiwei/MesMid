@@ -92,7 +92,7 @@ public class IQCActivity extends Activity{
 		SOPview.addJavascriptInterface(new JieYunJS(), "jieyunmob");
 		SOPview.getSettings().setUseWideViewPort(true); 
 		SOPview.getSettings().setJavaScriptEnabled(true); 
-		SOPview.getSettings().setBuiltInZoomControls(true);//��ʾ�Ŵ���С controler 
+		SOPview.getSettings().setBuiltInZoomControls(true);
 		SOPview.getSettings().setSupportZoom(true);
 		SOPview.getSettings().setDefaultZoom(WebSettings.ZoomDensity.FAR);
 		SOPview.setInitialScale(50);
@@ -123,7 +123,7 @@ public class IQCActivity extends Activity{
 			else if(Code == CONNECT_SUCCESS){
 				mDialog.setMessage((String)msg.obj);
 			}
-			/*��ȡSOP�������*/
+
 			else if(Code == SCANBARCODE_SUCCESS){
 				IOQCInfo info = (IOQCInfo)msg.obj;
 				mDialog.setMessage(info.Getinfo());

@@ -1,6 +1,6 @@
 package com.yf.mesmid.entity;
 
-import com.yf.mesmid.activity.Material;
+import com.yf.mesmid.ui.activity.Material;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

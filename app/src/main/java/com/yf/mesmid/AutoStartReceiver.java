@@ -4,7 +4,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 
-import com.yf.mesmid.activity.MainActivity;
+import com.yf.mesmid.ui.activity.MainActivity;
 
 public class AutoStartReceiver extends BroadcastReceiver {
 

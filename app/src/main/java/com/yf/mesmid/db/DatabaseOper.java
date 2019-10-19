@@ -7,7 +7,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.yf.mesmid.activity.ScanResult;
+import com.yf.mesmid.ui.activity.ScanResult;
 import com.yf.mesmid.entity.IOQCInfo;
 import com.yf.mesmid.entity.SopInfo;
 import com.yf.mesmid.entity.WXList;
@@ -346,7 +346,7 @@ public class DatabaseOper {
 	}
 	
 
-	static com.yf.mesmid.activity.ScanResult ScanBarcode(String PadName, String barcode) {
+	static com.yf.mesmid.ui.activity.ScanResult ScanBarcode(String PadName, String barcode) {
 		if(null == barcode) return null;
 		ScanResult result = null;
 		try {
@@ -1178,7 +1178,7 @@ public class DatabaseOper {
 		return info;
 	}
 
-	static IOQCInfo ScanIQCBarcode(String barcode, String PadName) {
+	public static IOQCInfo ScanIQCBarcode(String barcode, String PadName) {
         IOQCInfo info = null;
 		try {
 			String OQCjg = "", bltm = "", cptm = "";

@@ -28,7 +28,6 @@
         android:debuggable="true"
         android:icon="@drawable/yf_201311191178"
         android:label="@string/app_name"
-        android:testOnly="true"
         android:theme="@android:style/Theme.Light.NoTitleBar" >
         <activity
             android:name="com.yf.mesmid.UserActivity"
@@ -135,10 +134,6 @@
 		</receiver>
         -->
 
-        <provider
-            android:name="com.android.tools.ir.server.InstantRunContentProvider"
-            android:authorities="com.yf.mesmid.com.android.tools.ir.server.InstantRunContentProvider"
-            android:multiprocess="true" />
     </application>
 
 </manifest>

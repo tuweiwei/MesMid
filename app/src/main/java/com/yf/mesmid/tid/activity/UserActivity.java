@@ -1,4 +1,4 @@
-package com.yf.mesmid.ui.activitys.activity;
+package com.yf.mesmid.tid.activity;
 
 import java.util.Arrays;
 
@@ -222,7 +222,6 @@ public class UserActivity  extends Activity{
 	
 	class RGetInitial implements Runnable{
 		int Mode;
-		
 		RGetInitial(int mode)
 		{
 	        this.Mode=mode;
@@ -231,7 +230,7 @@ public class UserActivity  extends Activity{
 		public void run() {
 			if(null == DatabaseOper.con)
 			{
-				DatabaseOper.InitDatabaseConfig(ConfigPath);
+				//DatabaseOper.InitDatabaseConfig(ConfigPath);
 				if ( ! DatabaseOper.Connect() ) {
 					SendDataMessage(ERROR_NOEXIT, "���ݿ�����ʧ��", 0);
 					return;

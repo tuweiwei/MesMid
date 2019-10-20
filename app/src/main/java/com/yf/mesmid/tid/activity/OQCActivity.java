@@ -1,4 +1,4 @@
-package com.yf.mesmid.ui.activitys.activity;
+package com.yf.mesmid.tid.activity;
 
 import com.yf.mesmid.db.DatabaseOper;
 import com.yf.mesmid.R;
@@ -92,13 +92,14 @@ public class OQCActivity extends Activity{
 	}
 	
 	Handler handler = new Handler(){
-		public void handleMessage(android.os.Message msg) {
+		@Override
+		public void handleMessage(Message msg) {
 			int Code = msg.what;
 			if(Code == ERROR_NOEXIT){
 				IOQCInfo info = (IOQCInfo)msg.obj;
 				mDialog.cancel();
 				TextOpertips.setTextColor(Color.RED);
-				TextOpertips.setText(info.Getinfo());
+				TextOpertips.setText(info.getInfo());
 				
 			}
 			else if(Code == CONNECT_SUCCESS){
@@ -107,10 +108,10 @@ public class OQCActivity extends Activity{
 			/*��ȡSOP�������*/
 			else if(Code == SCANBARCODE_SUCCESS){
 				IOQCInfo info = (IOQCInfo)msg.obj;
-				mDialog.setMessage(info.Getinfo());
+				mDialog.setMessage(info.getInfo());
 				mDialog.cancel();
 				TextOpertips.setTextColor(Color.BLUE);
-				TextOpertips.setText(info.Getinfo());
+				TextOpertips.setText(info.getInfo());
 			}
 		};
 	};
@@ -133,7 +134,7 @@ public class OQCActivity extends Activity{
 		public void run() {
 			if(null == DatabaseOper.con)
 			{
-				DatabaseOper.InitDatabaseConfig(ConfigPath);
+				//DatabaseOper.InitDatabaseConfig(ConfigPath);
 				if ( ! DatabaseOper.Connect() ) {
 					SendDataMessage(ERROR_NOEXIT, "���ݿ�����ʧ��", 0);
 					return;
@@ -142,7 +143,7 @@ public class OQCActivity extends Activity{
 			if(CheckBLTM(barcode)) DatabaseOper.mbBL = true;
 			else DatabaseOper.mbBL = false;
 			IOQCInfo info =DatabaseOper.ScanOQCBarcode(barcode);
-			if(! info.Getxh().equals("100")){
+			if(! info.getXh().equals("100")){
 				ScanSound.PlayMusic(getApplicationContext(), ScanSound.MUSIC_ERROR);
 				SendDataMessage(ERROR_NOEXIT, info, 0);
 			}

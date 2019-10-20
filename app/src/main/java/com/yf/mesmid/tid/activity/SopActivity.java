@@ -1,4 +1,4 @@
-package com.yf.mesmid.ui.activitys;
+package com.yf.mesmid.tid.activity;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -459,7 +459,7 @@ public class SopActivity extends Activity /*implements OnTouchListener*/{
 
 		SOPview = (WebView) findViewById(R.id.textView_sop);
 		SOPview.setFocusable(false);
-		SOPview.addJavascriptInterface(new JieYunJS(), "jieyunmob");
+		//SOPview.addJavascriptInterface(new JieYunJS(), "jieyunmob");
 		
 		//SOPview.getSettings().setCacheMode(WebSettings.LOAD_NO_CACHE);
 		//SOPview.clearHistory();
@@ -557,6 +557,7 @@ public class SopActivity extends Activity /*implements OnTouchListener*/{
 	}
 	
 	Handler hScanUser = new Handler(){
+		@Override
 		public void handleMessage(Message msg) {
 			
 		};
@@ -664,7 +665,7 @@ public class SopActivity extends Activity /*implements OnTouchListener*/{
 		public void run() {
 			if(null == DatabaseOper.con)
 			{
-				DatabaseOper.InitDatabaseConfig(ConfigPath);
+				//DatabaseOper.InitDatabaseConfig(ConfigPath);
 				if ( ! DatabaseOper.Connect() ) {
 					SendDataMessage(ERROR_NOEXIT, "���ݿ�����ʧ��", 0);
 					return;
@@ -781,7 +782,7 @@ public class SopActivity extends Activity /*implements OnTouchListener*/{
 		public void run() {
 			if(null == DatabaseOper.con)
 			{
-				DatabaseOper.InitDatabaseConfig(ConfigPath);
+				//DatabaseOper.InitDatabaseConfig(ConfigPath);
 				if ( ! DatabaseOper.Connect() ) {
 					SendDataMessage(ERROR_NOEXIT, "���ݿ�����ʧ��", 0);
 					return;
@@ -799,7 +800,7 @@ public class SopActivity extends Activity /*implements OnTouchListener*/{
 				}
 			}
 			else if(this.Mode==MODE_SAVE_DATE){
-				boolean bRet = DatabaseOper.SaveDate(mInfo.Getoutputnums(), mInfo.Getacceptednums(), moeid, gwdm);
+				boolean bRet = DatabaseOper.SaveDate(mInfo.getOutputnums(), mInfo.getAcceptednums(), moeid, gwdm);
 				if(false == bRet){
 					ScanSound.PlayMusic(getApplicationContext(), ScanSound.MUSIC_ERROR);
 					SendDataMessage(ERROR_NOEXIT, "��������ʧ��", 0);
@@ -907,8 +908,8 @@ public class SopActivity extends Activity /*implements OnTouchListener*/{
 		//SopInfo info = new SopInfo(jopnumber, model, PN, batch, outputnums, acceptednums, 
 				//badnums, passrate, totaloutputs, acceptedrate, Opertips);
 		//ͨ��ƽ�����
-		SopInfo info = new SopInfo(jopnumber, model, PN, batch, mInfo.Getoutputnums(), mInfo.Getacceptednums(), 
-				mInfo.Getbadnums(), mInfo.Getpassrate(), mInfo.Gettotaloutputs(), mInfo.Getacceptedrate(), Opertips);
+		SopInfo info = new SopInfo(jopnumber, model, PN, batch, mInfo.getOutputnums(), mInfo.getAcceptednums(),
+				mInfo.getBadnums(), mInfo.getPassrate(), mInfo.getTotaloutputs(), mInfo.getAcceptedrate(), Opertips);
 		return info;
 	}
 	
@@ -1086,7 +1087,8 @@ public class SopActivity extends Activity /*implements OnTouchListener*/{
 	}
 	
 	Handler handler = new Handler(){
-		public void handleMessage(android.os.Message msg) {
+		@Override
+		public void handleMessage(Message msg) {
 			int Code = msg.what;
 			if(Code == ERROR_NOEXIT){
 				try {
@@ -1143,38 +1145,39 @@ public class SopActivity extends Activity /*implements OnTouchListener*/{
 				
 				DisplaySopInfo(true);
 				ScanResult result = (ScanResult) msg.obj;
-				String indexback = result.Getindexback();
+				String indexback = result.getIndexback();
 				int index = Integer.valueOf(indexback).intValue();
 				if(index < 100 || 103 == index){
 					ScanSound.PlayMusic(getApplicationContext(), ScanSound.MUSIC_ERROR);
 					SopInfo info = new SopInfo();
-					info.SetOperTips(result.Getinfoback());
-					String strInfo = info.GetTolOpertips(); String strPre = "                " +"������ʾ    \n"; 
-					String strDisplay = strInfo;
+//					info.SetOperTips(result.getInfoback());
+//					String strInfo = info.GetTolOpertips(); String strPre = "                " +"������ʾ    \n";
+					//String strDisplay = strInfo;
 					/*String strDisplay = strPre;
 					for(int i = strDisplay.length(); i < strInfo.length(); i++)
 					{
 						strDisplay += strInfo.substring(i, i+1);
 						if(0 != (i-12) && 0 == ((i-12)%12)) strDisplay += "\n";
 					}*/
-					TextOpertips.setText(strDisplay+DatabaseOper.DisplayInfo);
+					//TextOpertips.setText(strDisplay+DatabaseOper.DisplayInfo);
 					//TextOpertips.setText(strDisplay);//��Ϣ��ʾ
 					TextOpertips.setTextColor(Color.RED);
 					if(0 != DatabaseOper.TotalScanNums 
 							&& DatabaseOper.CurScanNums == DatabaseOper.TotalScanNums ) DatabaseOper.DisplayInfo="";//��Ϣ��ʾ
-					TipError(info.GetTolOpertips().substring(strPre.length()), false);
+					//TipError(info.GetTolOpertips().substring(strPre.length()), false);
 				}
 				else{
 					ScanSound.PlayMusic(getApplicationContext(), ScanSound.MUSIC_RIGHT);
-					if(DatabaseOper.mbBL && !DatabaseOper.bClInput) mInfo.SetFail(DatabaseOper.mljNums);
-					else if(!DatabaseOper.mbBL && !DatabaseOper.bClInput) mInfo.SetPass(DatabaseOper.mljNums);
-					String moInfo = result.Getmoinfo();
-					String Opertips = result.Getinfoback();
+//					if(DatabaseOper.mbBL && !DatabaseOper.bClInput) mInfo.SetFail(DatabaseOper.mljNums);
+//					else if(!DatabaseOper.mbBL && !DatabaseOper.bClInput) mInfo.SetPass(DatabaseOper.mljNums);
+					String moInfo = result.getMoinfo();
+					String Opertips = result.getInfoback();
 					SopInfo info = ParsemoInfo(moInfo, Opertips);
-					Textjopinfo.setText(info.GetjopInfo());
-					Textjopprogress.setText(info.Getjopprogress());
+					//Textjopinfo.setText(info.getjo());
+					//Textjopprogress.setText(info.Ge());
 					
-					String strInfo = info.GetTolOpertips(); if(bPackQJG) strInfo +="(��װǰ�ӹ�ģʽ)";
+//					String strInfo = info.GetTolOpertips(); if(bPackQJG) strInfo +="(��װǰ�ӹ�ģʽ)";
+					String strInfo = "";
 					if(bReWork) strInfo +="(����ģʽ)";
 					String strPre = "                " +"������ʾ    \n"; 
 					String strDisplay = strInfo;
@@ -1189,7 +1192,7 @@ public class SopActivity extends Activity /*implements OnTouchListener*/{
 					TextOpertips.setTextColor(Color.BLACK);
 					if(0 != DatabaseOper.TotalScanNums 
 							&& DatabaseOper.CurScanNums == DatabaseOper.TotalScanNums ) DatabaseOper.DisplayInfo="";//��Ϣ��ʾ
-					String filename = result.Getfilename();
+					String filename = result.getFilename();
 					if( ! "".equals(filename) && null != filename && ! filename.equals(SopFile) ){
 						SopFile = filename;
 						int trim = DatabaseOper.Address.indexOf(":", 0);
@@ -1236,33 +1239,34 @@ public class SopActivity extends Activity /*implements OnTouchListener*/{
 				
 				DisplaySopInfo(true);
 				ScanResult result = (ScanResult) msg.obj;
-				String indexback = result.Getindexback();
+				String indexback = result.getIndexback();
 				int index = Integer.valueOf(indexback).intValue();
 				if(index < 100 || 103 == index){
 					ScanSound.PlayMusic(getApplicationContext(), ScanSound.MUSIC_ERROR);
 					SopInfo info = new SopInfo();
-					info.SetOperTips(result.Getinfoback());
-					String strInfo = info.GetTolOpertips(); String strPre = "                " +"������ʾ    \n"; 
-					String strDisplay = strInfo;
-					TextOpertips.setText(strDisplay+DatabaseOper.DisplayInfo);
+					//info.SetOperTips(result.getInfoback());
+					//String strInfo = info.GetTolOpertips(); String strPre = "                " +"������ʾ    \n";
+					//String strDisplay = strInfo;
+					//TextOpertips.setText(strDisplay+DatabaseOper.DisplayInfo);
 					//TextOpertips.setText(strDisplay);//��Ϣ��ʾ
 					TextOpertips.setTextColor(Color.RED);
-					TipError(info.GetTolOpertips().substring(strPre.length()), false);
+					//TipError(info.GetTolOpertips().substring(strPre.length()), false);
 				}
 				else{
 					ScanSound.PlayMusic(getApplicationContext(), ScanSound.MUSIC_RIGHT);
-					String moInfo = result.Getmoinfo();
-					String Opertips = result.Getinfoback();
+					String moInfo = result.getMoinfo();
+					String Opertips = result.getInfoback();
 					SopOQCInfo info = ParsemoOQCInfo(moInfo, Opertips);
-					Textjopinfo.setText(info.GetjopInfo());
-					Textjopprogress.setText(info.Getjopprogress());
-					
-					String strInfo = info.GetTolOpertips();
+//					Textjopinfo.setText(info.getjo());
+//					Textjopprogress.setText(info.Ge());
+//
+					//String strInfo = info.GetTolOpertips();
 					String strPre = "                " +"������ʾ    \n"; 
-					String strDisplay = strInfo;
+//					String strDisplay = strInfo;
+					String strDisplay = "";
 					TextOpertips.setText(strDisplay+DatabaseOper.DisplayInfo);
 					TextOpertips.setTextColor(Color.BLACK);
-					String filename = result.Getfilename();
+					String filename = result.getFilename();
 					if( ! "".equals(filename) && null != filename && ! filename.equals(SopFile) ){
 						SopFile = filename;
 						int trim = DatabaseOper.Address.indexOf(":", 0);
@@ -1285,12 +1289,12 @@ public class SopActivity extends Activity /*implements OnTouchListener*/{
 				}
 				
 				mInfo= (SopInfo) msg.obj;
-				mInfo.Setmodel(jxbm);
-				mInfo.Setjopnumber(GD);
-				mInfo.Setbatch(batch);
-				mInfo.SetPN(gydm);
-				Textjopinfo.setText(mInfo.GetjopInfo());
-				Textjopprogress.setText(mInfo.Getjopprogress());
+				mInfo.setModel(jxbm);
+				mInfo.setJopnumber(GD);
+				mInfo.setBatch(batch);
+				mInfo.setPN(gydm);
+				//Textjopinfo.setText(mInfo.getjo());
+				//Textjopprogress.setText(mInfo.Ge());
 				
 			}
 			/*�õ���ʼ�������*/
@@ -1546,6 +1550,7 @@ public class SopActivity extends Activity /*implements OnTouchListener*/{
 	};
 	
 	private Handler mHandler = new Handler() {
+		@Override
 		public void handleMessage(android.os.Message msg) {
 			tv_progress.setText("��ǰ���� �� " + msg.what + "%");
 
@@ -1553,6 +1558,6 @@ public class SopActivity extends Activity /*implements OnTouchListener*/{
 	};
 	
 	public interface ICallbackResult {
-		public void OnBackResult(Object result);
+		void OnBackResult(Object result);
 	}
 }

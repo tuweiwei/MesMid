@@ -1,4 +1,4 @@
-package com.yf.mesmid.ui.activitys.activity;
+package com.yf.mesmid.tid.activity;
 
 import com.yf.mesmid.consts.MyConsts;
 import com.yf.mesmid.db.DatabaseOper;
@@ -162,7 +162,7 @@ public class IQCActivity extends Activity{
 		public void run() {
 			if(null == DatabaseOper.con)
 			{
-				DatabaseOper.InitDatabaseConfig(MyConsts.ConfigPath);
+				//DatabaseOper.InitDatabaseConfig(MyConsts.ConfigPath);
 				if ( ! DatabaseOper.Connect() ) {
 					SendDataMessage(MyConsts.ERROR_NOEXIT, "���ݿ�����ʧ��", 0);
 					return;

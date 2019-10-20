@@ -1,7 +1,6 @@
-package com.yf.mesmid.ui.activitys.activity;
+package com.yf.mesmid.tid.activity;
 
 import java.util.List;
-
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
@@ -241,7 +240,7 @@ public class XGActivity extends Activity{
 		public void run() {
 			if(null == DatabaseOper.con)
 			{
-				DatabaseOper.InitDatabaseConfig(ConfigPath);
+				//DatabaseOper.InitDatabaseConfig(ConfigPath);
 				if ( ! DatabaseOper.Connect() ) {
 					SendDataMessage(ERROR_NOEXIT, "���ݿ�����ʧ��", 0);
 					return;

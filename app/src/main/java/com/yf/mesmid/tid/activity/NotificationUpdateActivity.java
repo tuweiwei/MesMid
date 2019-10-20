@@ -1,4 +1,4 @@
-package com.yf.mesmid.ui.activitys.activity;
+package com.yf.mesmid.tid.activity;
 
 import com.yf.mesmid.R;
 import com.yf.mesmid.app.MyApp;

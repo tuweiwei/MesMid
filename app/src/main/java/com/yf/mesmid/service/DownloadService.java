@@ -8,10 +8,10 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-import com.yf.mesmid.ui.activitys.activity.JobListActivity;
 import com.yf.mesmid.R;
 import com.yf.mesmid.app.MyApp;
-import com.yf.mesmid.ui.activitys.activity.NotificationUpdateActivity.ICallbackResult;
+import com.yf.mesmid.tid.activity.JobListActivity;
+import com.yf.mesmid.tid.activity.NotificationUpdateActivity;
 
 import android.app.Notification;
 import android.app.NotificationManager;
@@ -40,7 +40,7 @@ public class DownloadService extends Service {
 			"/updateApk/";
 
 	private static final String saveFileName = savePath + "MESMid.apk";
-	private ICallbackResult callback;
+	private NotificationUpdateActivity.ICallbackResult callback;
 	private DownloadBinder binder;
 	private MyApp app;
 	private boolean serviceIsDestroy = false;
@@ -174,7 +174,7 @@ public class DownloadService extends Service {
 			mHandler.sendEmptyMessage(2);
 		}
 
-		public void addCallback(ICallbackResult callback) {
+		public void addCallback(NotificationUpdateActivity.ICallbackResult callback) {
 			DownloadService.this.callback = callback;
 		}
 	}

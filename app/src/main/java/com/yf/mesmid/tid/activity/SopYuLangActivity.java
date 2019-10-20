@@ -1,4 +1,4 @@
-package com.yf.mesmid.ui.activitys.activity;
+package com.yf.mesmid.tid.activity;
 
 import android.os.Bundle;
 import android.os.Handler;
@@ -16,7 +16,6 @@ import com.yf.mesmid.R;
 
 public class SopYuLangActivity extends Activity /*implements OnTouchListener*/{
 	final String TAG = "MESMID";
-	final int FLAG_AW_HIDESTATUS = 0x80000000;
 	private WebView SOPview = null;
 	private String SopFile;
 	private String DeviceID;
@@ -38,7 +37,7 @@ public class SopYuLangActivity extends Activity /*implements OnTouchListener*/{
 		GD = getIntent().getStringExtra("gd");
 		SOPview = (WebView) findViewById(R.id.textView_sop);
 		SOPview.setFocusable(false);
-		SOPview.addJavascriptInterface(new JieYunJS(), "jieyunmob");
+		//SOPview.addJavascriptInterface(new JieYunJS(), "jieyunmob");
 		SOPview.getSettings().setUseWideViewPort(true); 
 		SOPview.getSettings().setJavaScriptEnabled(true); 
 		SOPview.getSettings().setBuiltInZoomControls(true);//��ʾ�Ŵ���С controler 

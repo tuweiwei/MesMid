@@ -7,12 +7,12 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.yf.mesmid.ui.activitys.activity.ScanResult;
 import com.yf.mesmid.entity.IOQCInfo;
 import com.yf.mesmid.entity.SopInfo;
 import com.yf.mesmid.entity.WXList;
 import com.yf.mesmid.entity.XGInfo;
 import com.yf.mesmid.entity.UpdataInfo;
+import com.yf.mesmid.tid.activity.ScanResult;
 
 import android.database.SQLException;
 import android.util.Log;
@@ -229,7 +229,7 @@ public class DatabaseOper {
 		return info;
 	}
 	
-	static boolean SaveDate(String chsl,String lpsl, String moeid, String gxdm) {
+	public static boolean SaveDate(String chsl,String lpsl, String moeid, String gxdm) {
 		boolean bRet= true;
 		try {
 			String sql = "";
@@ -250,7 +250,7 @@ public class DatabaseOper {
 		return bRet;
 	}
 
-	static boolean ScanBatchCode(String moid, String PadName, 
+	public static boolean ScanBatchCode(String moid, String PadName,
 			String wldm, String xh, String batchcode) {
         boolean bRet = false;
 		try {
@@ -315,7 +315,7 @@ public class DatabaseOper {
 	}
 	
 
-	static String GetSopInfo(String wldm, String xh, String PadName) {
+	public static String GetSopInfo(String wldm, String xh, String PadName) {
         String SopFile = null;
 
 		try {
@@ -346,7 +346,7 @@ public class DatabaseOper {
 	}
 	
 
-	static com.yf.mesmid.ui.activitys.activity.ScanResult ScanBarcode(String PadName, String barcode) {
+	static com.yf.mesmid.tid.activity.ScanResult ScanBarcode(String PadName, String barcode) {
 		if(null == barcode) return null;
 		ScanResult result = null;
 		try {
@@ -454,7 +454,7 @@ public class DatabaseOper {
 	}
 	
 
-	static ScanResult ScanBarcodeEx(String PadName, String barcode, String rework) {
+	public static com.yf.mesmid.tid.activity.ScanResult ScanBarcodeEx(String PadName, String barcode, String rework) {
 		if(null == barcode) return null;
 		ScanResult result = null;
 		try {
@@ -703,7 +703,7 @@ public class DatabaseOper {
 //	}
 	
 
-	static ScanResult ScanSN(String PadName, String gd, String jgtm, String number, String bltm)
+	public static ScanResult ScanSN(String PadName, String gd, String jgtm, String number, String bltm)
 	{
 		if(null == gd) return null;
 		ScanResult result = null;
@@ -754,7 +754,7 @@ public class DatabaseOper {
 		return result;
 	}
 
-	static ScanResult ScanSMTAOI(String PadName, String barcode) {
+	public static ScanResult ScanSMTAOI(String PadName, String barcode) {
 		if(null == barcode) return null;
 		ScanResult result = null;
 		try {
@@ -819,7 +819,7 @@ public class DatabaseOper {
 		return result;
 	}
 
-	static ScanResult ScanQJG(String PadName, String jgtm, String number)
+	public static ScanResult ScanQJG(String PadName, String jgtm, String number)
 	{
 		if(null == PadName || null == jgtm || null == number) return null;
 		ScanResult result = null;
@@ -868,7 +868,7 @@ public class DatabaseOper {
 		return result;
 	}
 
-	static ScanResult ScanBarcodeOQC(String PadName, String barcode, String zzdh) {
+	public static ScanResult ScanBarcodeOQC(String PadName, String barcode, String zzdh) {
 		if(null == barcode) return null;
 		ScanResult result = null;
 		try {
@@ -939,7 +939,7 @@ public class DatabaseOper {
 		return result;
 	}
 
-	static String SpGetWldm(String code)
+	public static String SpGetWldm(String code)
 	{
 		String wldm = null;
 
@@ -1142,7 +1142,7 @@ public class DatabaseOper {
 		return strJGF;
 	}
 
-	static IOQCInfo ScanOQCBarcode(String barcode) {
+	public static IOQCInfo ScanOQCBarcode(String barcode) {
         IOQCInfo info = null;
 		try {
 			String OQCjg = "", bltm = "", cptm = "";

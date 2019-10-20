@@ -1,10 +1,11 @@
-package com.yf.mesmid.ui.activitys.activity;
+package com.yf.mesmid.tid.activity;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
 import com.yf.mesmid.db.DatabaseOper;
+import com.yf.mesmid.entity.Material;
 import com.yf.mesmid.entity.Procedure;
 import com.yf.mesmid.R;
 import com.yf.mesmid.util.ScanSound;
@@ -548,7 +549,7 @@ public class JobListActivity  extends Activity{
 			}
 		});
 		Log.i(TAG, "start query joborder");
-		Wifimanager = (WifiManager) getSystemService(Context.WIFI_SERVICE);
+		Wifimanager = (WifiManager) getApplicationContext().getSystemService(Context.WIFI_SERVICE);
 		mDialog = new ProgressDialog(this);
 		mDialog.setMessage("���ڻ�ȡ�豸ID...");
 		mDialog.show();
@@ -564,7 +565,7 @@ public class JobListActivity  extends Activity{
 			//ThreadData thread = new ThreadData(this, GET_UPDATEINFO);
 			//thread.start();
 		}
-		DatabaseOper.InitDatabaseConfig(ConfigPath);
+		//DatabaseOper.InitDatabaseConfig(ConfigPath);
 		//���Ѳ���������
 		WifiReceiver = new WIFIBroadcastReceiver();
 		IntentFilter Wififilter = new IntentFilter();
@@ -632,7 +633,7 @@ public class JobListActivity  extends Activity{
 		int count = 0;
 		for(int i = 0; i < mListJobOrder.size();i++)
 		{
-			String zzdh=mListJobOrder.get(i).Getjoborder();
+			String zzdh=mListJobOrder.get(i).getJoborder();
 			if(zzdh !=null && zzdh.length()>=1){
 				//zzdh=zzdh.substring(zzdh.length()-5, zzdh.length());
 				if(zzdh.contains(strContain)){
@@ -649,7 +650,7 @@ public class JobListActivity  extends Activity{
 		int count = 0;
 		for(int i = 0; i < mListJobOrder.size();i++)
 		{
-			String zzdh=mListJobOrder.get(i).Getjoborder();
+			String zzdh=mListJobOrder.get(i).getJoborder();
 			if(zzdh !=null && zzdh.length()>=1){
 				//zzdh=zzdh.substring(zzdh.length()-5, zzdh.length());
 				if(zzdh.contains(strContain)){
@@ -1011,28 +1012,21 @@ public class JobListActivity  extends Activity{
 				}
 				else{
 					mDialog.setMessage("���ڼ��WIFI����...");
-					/*mDialog.setMessage("�����������ݿ�...");
-					ThreadData thread = new ThreadData(JobListActivity.this, GET_UPDATEINFO);
-					thread.start()*/;
 				}
 			}
 			else if(ERROR_EXIT == Code){
 				mDialog.cancel();
-				//PlayMusic(MUSIC_ERROR);
 				TipError((String)msg.obj, 3, true);
 			}
 			else if(CONNECT_SUCCESS == Code){
 				mDialog.setMessage((String)msg.obj);
-				//PlayMusic(MUSIC_RIGHT);
 			}
 			else if(GETJOBORDER_SUCCESS == Code){
 				mDialog.setMessage("��ѯ�������ݳɹ�");
 				mDialog.cancel();
-				//PlayMusic(MUSIC_RIGHT);
 				mListJobOrder = (List<JobOrder>)msg.obj;
 				JobOrderAdapt jobadapt = new JobOrderAdapt(JobListActivity.this, mListJobOrder);
 				ListJobOrder.setAdapter(jobadapt);
-				//-----����ģ����ѯģʽ���룬ֱ�Ӳ�ѯ����
 				if(djjr || DatabaseOper.GX_MODE==DatabaseOper.KEYBOARD_MODE){
 					mDialog.setMessage("���ڲ�ѯ��������...");
 					mDialog.show();
@@ -1043,8 +1037,6 @@ public class JobListActivity  extends Activity{
 			else if(GETPROCEDURE_SUCCESS == Code){
 				mDialog.setMessage("��ѯ�������Ƴɹ�");
 				mDialog.cancel();
-				//PlayMusic(MUSIC_RIGHT);
-				//OQCģʽֻ��һ�����򣬿����Զ�ѡ��
 				if(DatabaseOper.SC_MODE==DatabaseOper.OQC_MODE){
 					iSelProcedure=1;
 				}
@@ -1052,7 +1044,6 @@ public class JobListActivity  extends Activity{
 				ProcedureAdapt procedureadapt = new ProcedureAdapt(JobListActivity.this, mListProcedure);
 				mProcedureAdapt = procedureadapt;
 				ListProcedure.setAdapter(mProcedureAdapt);
-				//-----����ģ����ѯģʽ���룬ֱ�Ӳ�ѯ����
 				if(djjr || (DatabaseOper.SC_MODE==DatabaseOper.OQC_MODE && mListProcedure.size()==2)){
 					mDialog.setMessage("���ڲ�ѯ��������...");
 					mDialog.show();
@@ -1072,13 +1063,13 @@ public class JobListActivity  extends Activity{
 					DatabaseOper.mbScanBatchCode=true;
 					for(int i = 1; i < mListMaterial.size(); i++)
 					{
-						MesLsData.lcldm.add(mListMaterial.get(i).Getmaterial());
-						if(mListMaterial.get(i).Getclgkztbz().equals("1") && 
-								mListMaterial.get(i).Getmaterialofcontrol().equals("")){
-							strResult+=mListMaterial.get(i).Getmaterial();
+						MesLsData.lcldm.add(mListMaterial.get(i).getMaterial());
+						if(mListMaterial.get(i).getClgkztbz().equals("1") &&
+								mListMaterial.get(i).getMaterialofcontrol().equals("")){
+							strResult+=mListMaterial.get(i).getMaterial();
 						}
-						if(mListMaterial.get(i).Getpcgkztbz().equals("1") && 
-								mListMaterial.get(i).Getbatchkeymaterial().equals("")){
+						if(mListMaterial.get(i).getPcgkztbz().equals("1") &&
+								mListMaterial.get(i).getBatchkeymaterial().equals("")){
 							strResult+="(����)";
 						}
 						strResult+="\n";
@@ -1131,7 +1122,7 @@ public class JobListActivity  extends Activity{
 					
 					for(int i = 0; i < mListMaterial.size(); i++)
 					{
-						String strMaterial = mListMaterial.get(i).Getmaterial();
+						String strMaterial = mListMaterial.get(i).getMaterial();
 						if(strMaterial.equals(StringInput) || (null != StringMaterial && strMaterial.equals(StringMaterial))){
 							iSelMaterial = i;
 							break;
@@ -1159,21 +1150,21 @@ public class JobListActivity  extends Activity{
 				//Intent intent = new Intent(JobListActivity.this, MainActivity.class);
 				//OQCģʽ���ݱ���
 				if(DatabaseOper.SC_MODE == DatabaseOper.OQC_MODE){
-					DatabaseOper.OQC_AQL=mListJobOrder.get(iSelJob).Getmoid();
-					DatabaseOper.OQC_SJS=mListJobOrder.get(iSelJob).Getmodel();
-					DatabaseOper.OQC_CJS=mListJobOrder.get(iSelJob).Getbatch();
+					DatabaseOper.OQC_AQL=mListJobOrder.get(iSelJob).getModel();
+					DatabaseOper.OQC_SJS=mListJobOrder.get(iSelJob).getModel();
+					DatabaseOper.OQC_CJS=mListJobOrder.get(iSelJob).getModel();
 				}
 				//--------
 				Intent intent = new Intent(JobListActivity.this, UserActivity.class);
 				
 				//intent.setFlags(Intent.FLAG_ACTIVITY_LAUNCHED_FROM_HISTORY);
-				String gd = mListJobOrder.get(iSelJob).Getjoborder();
-				String gydm=mListJobOrder.get(iSelJob).Getmaterialorder();
-				String moeid=mListJobOrder.get(iSelJob).Getmoid();
-				String jxbm=mListJobOrder.get(iSelJob).Getmodel();
-				String batch=mListJobOrder.get(iSelJob).Getbatch();
-				String strprocedurexh = ""+mListProcedure.get(iSelProcedure).Getnumber();
-				String strproceduregxmc = mListProcedure.get(iSelProcedure).Getprocedurename();
+				String gd = mListJobOrder.get(iSelJob).getJoborder();
+				String gydm=mListJobOrder.get(iSelJob).getMaterialorder();
+				String moeid=mListJobOrder.get(iSelJob).getMoid();
+				String jxbm=mListJobOrder.get(iSelJob).getModel();
+				String batch=mListJobOrder.get(iSelJob).getBatch();
+				String strprocedurexh = ""+mListProcedure.get(iSelProcedure).getNumber();
+				String strproceduregxmc = mListProcedure.get(iSelProcedure).getProcedureName();
 				intent.putExtra("sopfile", (String)msg.obj);
 				intent.putExtra("gd", gd);
 				intent.putExtra("gydm", gydm);
@@ -1279,50 +1270,50 @@ public class JobListActivity  extends Activity{
 				//SendDataMessage(CONNECT_SUCCESS, "���ڲ�ѯ��������...", 0);
 				//PlayMusic(MUSIC_SCAN);
 				List<JobOrder> ListJoborder;
-				if(DatabaseOper.SC_MODE == DatabaseOper.OQC_MODE)  ListJoborder = DatabaseOper.GetJobOrderOQC(DeviceID);
-				else  ListJoborder = DatabaseOper.GetJobOrder(DeviceID);
-				if( null == ListJoborder){
-					SendDataMessage(ERROR_NOEXIT, "��ѯ��������ʧ��", 0);
-				}else{
-					SendDataMessage(GETJOBORDER_SUCCESS, ListJoborder, 0);
-				}
+//				if(DatabaseOper.SC_MODE == DatabaseOper.OQC_MODE)  ListJoborder = DatabaseOper.GetJobOrderOQC(DeviceID);
+//				else  ListJoborder = DatabaseOper.GetJobOrder(DeviceID);
+//				if( null == ListJoborder){
+//					SendDataMessage(ERROR_NOEXIT, "��ѯ��������ʧ��", 0);
+//				}else{
+//					SendDataMessage(GETJOBORDER_SUCCESS, ListJoborder, 0);
+//				}
 			}
 			else if(QUERY_PROCEDURE == query_mode)
 			{
 				//SendDataMessage(CONNECT_SUCCESS, "���ڲ�ѯ��������...");
 				//int index = ListJobOrder.getSelectedItemPosition();
 				//PlayMusic(MUSIC_SCAN);
-				String wldm = mListJobOrder.get(iSelJob).Getmaterialorder();
-				String moeid= mListJobOrder.get(iSelJob).Getmoid();
-				List<Procedure> Listprocedure = DatabaseOper.GetProcedure(wldm, DeviceID,moeid);
-				if( null == Listprocedure){
-					SendDataMessage(ERROR_NOEXIT, "��ѯ��������ʧ��", 0);
-				}else{
-					SendDataMessage(GETPROCEDURE_SUCCESS, Listprocedure, 0);
-				}
+				//String wldm = mListJobOrder.get(iSelJob).Getmaterialorder();
+				String moeid= mListJobOrder.get(iSelJob).getMoid();
+				//List<Procedure> Listprocedure = DatabaseOper.GetProcedure(wldm, DeviceID,moeid);
+//				if( null == Listprocedure){
+//					SendDataMessage(ERROR_NOEXIT, "��ѯ��������ʧ��", 0);
+//				}else{
+//					SendDataMessage(GETPROCEDURE_SUCCESS, Listprocedure, 0);
+//				}
 			}
 			else if(QUERY_MATERIAL == query_mode)
 			{
 				//SendDataMessage(CONNECT_SUCCESS, "���ڲ�ѯ��������...");
 				//int index = ListJobOrder.getSelectedItemPosition();
 				//PlayMusic(MUSIC_SCAN);
-				String moid = mListJobOrder.get(iSelJob).Getmoid();
-				String wldm = mListJobOrder.get(iSelJob).Getmaterialorder();
+				String moid = mListJobOrder.get(iSelJob).getMoid();
+				String wldm = mListJobOrder.get(iSelJob).getMaterialorder();
 				//index = ListProcedure.getSelectedItemPosition();
-				String xh = "" + mListProcedure.get(iSelProcedure).Getnumber();
-				List<Material> Listmaterial = DatabaseOper.GetMaterial(moid, wldm, xh, DeviceID);
-				if( null == Listmaterial){
-					SendDataMessage(ERROR_NOEXIT, "��ѯ��������ʧ��", 0);
-				}else{
-					SendDataMessage(GETMATERIAL_SUCCESS, Listmaterial, 0);
-				}
+				String xh = "" + mListProcedure.get(iSelProcedure).getNumber();
+				//List<Material> Listmaterial = DatabaseOper.getMaterial(moid, wldm, xh, DeviceID);
+//				if( null == Listmaterial){
+//					SendDataMessage(ERROR_NOEXIT, "��ѯ��������ʧ��", 0);
+//				}else{
+//					SendDataMessage(GETMATERIAL_SUCCESS, Listmaterial, 0);
+//				}
 			}
 			else if(SCAN_BATCHCODE == query_mode)
 			{
-				String moid = mListJobOrder.get(iSelJob).Getmoid();
+				String moid = mListJobOrder.get(iSelJob).getMoid();
 				String PadName = DeviceID;
-				String wldm = mListJobOrder.get(iSelJob).Getmaterialorder();
-				String xh = "" + mListProcedure.get(iSelProcedure).Getnumber();
+				String wldm = mListJobOrder.get(iSelJob).getMaterialorder();
+				String xh = "" + mListProcedure.get(iSelProcedure).getNumber();
 				//String batchcode = mListMaterial.get(iSelMaterial).Getbatchcode();
 				String batchcode  = StringInput;
 				if( ! DatabaseOper.ScanBatchCode(moid, PadName, wldm, xh, batchcode) ){
@@ -1342,9 +1333,9 @@ public class JobListActivity  extends Activity{
 			{
 				//SendDataMessage(CONNECT_SUCCESS, "���ڲ�ѯ��������...");
 				//int index = ListJobOrder.getSelectedItemPosition();
-				String wldm = mListJobOrder.get(iSelJob).Getmaterialorder();
+				String wldm = mListJobOrder.get(iSelJob).getMaterialorder();
 				//index = ListProcedure.getSelectedItemPosition();
-				String xh = "" + mListProcedure.get(iSelProcedure).Getnumber();
+				String xh = "" + mListProcedure.get(iSelProcedure).getNumber();
 				String SopFile = DatabaseOper.GetSopInfo(wldm, xh, DeviceID);
 				if( null == SopFile){
 					SendDataMessage(ERROR_NOEXIT, "��ѯSOPʧ��", 0);
@@ -1430,7 +1421,7 @@ public class JobListActivity  extends Activity{
 			holder.model.setTextColor(TextColor);
 			holder.batch.setTextColor(TextColor);*/
 			
-			int number = list.get(position).Getnumber();
+			int number = list.get(position).getNumber();
 			if(0 == number) {
 				view.setClickable(false);
 				holder.number .setText("�� ��");
@@ -1448,11 +1439,11 @@ public class JobListActivity  extends Activity{
 					}
 				});
 			}
-			holder.producedata .setText(list.get(position).Getproducedata());
-			holder.joborder .setText(list.get(position).Getjoborder());
-			holder.materialorder .setText(list.get(position).Getmaterialorder());
-			holder.model.setText(list.get(position).Getmodel());
-			holder.batch.setText(list.get(position).Getbatch());
+			holder.producedata .setText(list.get(position).getProducedata());
+			holder.joborder .setText(list.get(position).getJoborder());
+			holder.materialorder .setText(list.get(position).getMaterialorder());
+			holder.model.setText(list.get(position).getModel());
+			holder.batch.setText(list.get(position).getBatch());
 			//����Ƿ�Ϊ����ģ����ѯģʽ����
 			if(djjr || DatabaseOper.GX_MODE==DatabaseOper.KEYBOARD_MODE ){
 				if(position == gdxh || 0 == number)
@@ -1526,7 +1517,7 @@ public class JobListActivity  extends Activity{
 			holder.number = (TextView) view.findViewById(R.id.textItem_number);
 			holder.procedurename = (TextView) view.findViewById(R.id.textItem_procedurename);
 			//holder.name = (TextView) view.findViewById(R.id.textItem_name);
-			int number = list.get(position).Getnumber();
+			int number = list.get(position).getNumber();
 			if(0 == number) {
 				view.setClickable(false);
 				holder.number .setText("�� ��");
@@ -1544,7 +1535,7 @@ public class JobListActivity  extends Activity{
 				});
 			}
 			
-			holder.procedurename .setText(list.get(position).Getprocedurename());
+			holder.procedurename .setText(list.get(position).getProcedureName());
 			//holder.name.setText(list.get(position).Getname());
 			//����Ƿ�Ϊ������
 			if(djjr){
@@ -1614,7 +1605,7 @@ public class JobListActivity  extends Activity{
 			holder.material = (TextView) view.findViewById(R.id.textItem_material);
 			holder.pmgg = (TextView) view.findViewById(R.id.textItem_pmgg);
 			holder.batchcode = (EditText) view.findViewById(R.id.editItem_batchcode);
-			int number = list.get(position).Getnumber();
+			int number = list.get(position).getNumber();
 			holder.batchcode.clearFocus();
 			//holder.batchcode.setInputType(InputType.TYPE_NULL); 
 			//holder.batchcode.setKeyListener(null);
@@ -1640,8 +1631,8 @@ public class JobListActivity  extends Activity{
 							 String batchcode = holder.batchcode.getText().toString();
 							 mDialog.setMessage("����ɨ��������...");
 							 mDialog.show();
-							 list.get(index).Setbatchkeymaterial(batchcode);
-							 mListMaterial.get(index).Setbatchkeymaterial(batchcode);
+							 list.get(index).setBatchkeymaterial(batchcode);
+							 mListMaterial.get(index).setBatchkeymaterial(batchcode);
 							 ThreadData thread = new ThreadData(JobListActivity.this, SCAN_BATCHCODE);
 							 thread.start();
 							 list.get(index).bEnter = true;
@@ -1716,13 +1707,13 @@ public class JobListActivity  extends Activity{
 				//holder.batchcode.setText("J13120900"+(1+position));
 			}
 			
-			holder.material.setText(list.get(position).Getmaterial());
-			holder.pmgg.setText(list.get(position).Getpmgg());
+			holder.material.setText(list.get(position).getMaterial());
+			holder.pmgg.setText(list.get(position).getPmgg());
 			
 			
-			String clgkztbz = list.get(position).Getclgkztbz();
+			String clgkztbz = list.get(position).getClgkztbz();
 			if(clgkztbz.equals("1")){
-				String materialofcontrol = list.get(position).Getmaterialofcontrol();
+				String materialofcontrol = list.get(position).getMaterialofcontrol();
 				//��Ϊ��˵���Ѿ�ɨ��
 				if(materialofcontrol.equals("")) holder.material.setBackgroundColor(SelTextColor);
 				else holder.material.setBackgroundColor(SelColor);
@@ -1731,7 +1722,7 @@ public class JobListActivity  extends Activity{
 				holder.material.setBackgroundColor(NONeedSelBackgroundColor);
 			}
 			
-			String batchcode = list.get(position).Getbatchkeymaterial();
+			String batchcode = list.get(position).getBatchkeymaterial();
 			holder.batchcode.setText(batchcode);
 			//holder.batchcode.setBackgroundColor(Color.TRANSPARENT);
 			holder.batchcode.setSelection(batchcode.length());
@@ -1748,7 +1739,7 @@ public class JobListActivity  extends Activity{
 				//---------------------------------
 				
 				//���Ƿ������κ�
-				String strpcgk = list.get(position).Getpcgkztbz();
+				String strpcgk = list.get(position).getPcgkztbz();
 				if(strpcgk.equals("1")) {
 					//��Ϊ��˵���Ѿ�ɨ��
 					if(batchcode.equals("")) holder.batchcode.setBackgroundColor(SelTextColor);

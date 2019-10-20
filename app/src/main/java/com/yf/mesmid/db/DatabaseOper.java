@@ -7,7 +7,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.yf.mesmid.ui.activity.ScanResult;
+import com.yf.mesmid.ui.activitys.activity.ScanResult;
 import com.yf.mesmid.entity.IOQCInfo;
 import com.yf.mesmid.entity.SopInfo;
 import com.yf.mesmid.entity.WXList;
@@ -114,7 +114,7 @@ public class DatabaseOper {
 		return strCLBarcode;
 	}
 
-	static public void InitDatabaseConfig(String ConfigPath) {
+	static {
 		ConnMode =  "wifi";
 		UserName = "sa";
 		PassWord = "sql2008";
@@ -346,7 +346,7 @@ public class DatabaseOper {
 	}
 	
 
-	static com.yf.mesmid.ui.activity.ScanResult ScanBarcode(String PadName, String barcode) {
+	static com.yf.mesmid.ui.activitys.activity.ScanResult ScanBarcode(String PadName, String barcode) {
 		if(null == barcode) return null;
 		ScanResult result = null;
 		try {

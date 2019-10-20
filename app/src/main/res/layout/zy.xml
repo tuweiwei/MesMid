@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.activity.SopActivity" >
+    tools:context=".ui.activitys.activity.SopActivity" >
     
     <RelativeLayout
         android:id="@+id/layoutmenu"
@@ -28,7 +28,6 @@
             android:layout_toRightOf="@+id/imageView1"
             android:textSize="26dip"
             android:layout_centerVertical="true"/>
-
         </RelativeLayout>
 
         <Button
@@ -38,19 +37,5 @@
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
             android:text="生  产"
-            android:textSize="32dip"
-            android:visibility="gone"/>
-
-        <Button
-            android:id="@+id/btn_cj"
-            android:layout_width="180dip"
-            android:layout_height="120dip"
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
-            android:layout_alignRight="@+id/button1"
-            android:layout_below="@+id/btn_sc"
-            android:text="售  后"
-            android:textSize="32dip"
-            android:layout_marginTop="10dip"
-            android:visibility="gone"></Button>
+            android:textSize="32dip" />
 </RelativeLayout>

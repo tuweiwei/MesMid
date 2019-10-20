@@ -1,4 +1,4 @@
-package com.yf.mesmid.ui.activity;
+package com.yf.mesmid.ui.activitys;
 
 import java.sql.Connection;
 import java.sql.ResultSet;

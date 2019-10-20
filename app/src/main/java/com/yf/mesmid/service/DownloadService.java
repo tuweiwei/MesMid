@@ -8,10 +8,10 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-import com.yf.mesmid.ui.activity.JobListActivity;
+import com.yf.mesmid.ui.activitys.activity.JobListActivity;
 import com.yf.mesmid.R;
 import com.yf.mesmid.app.MyApp;
-import com.yf.mesmid.ui.activity.NotificationUpdateActivity.ICallbackResult;
+import com.yf.mesmid.ui.activitys.activity.NotificationUpdateActivity.ICallbackResult;
 
 import android.app.Notification;
 import android.app.NotificationManager;
@@ -50,7 +50,6 @@ public class DownloadService extends Service {
 
 		@Override
 		public void handleMessage(Message msg) {
-			// TODO Auto-generated method stub
 			super.handleMessage(msg);
 			switch (msg.what) {
 			case 0:
@@ -102,44 +101,32 @@ public class DownloadService extends Service {
 	//
 	// @Override
 	// public int onStartCommand(Intent intent, int flags, int startId) {
-	// // TODO Auto-generated method stub
 	// return START_STICKY;
 	// }
 
 	@Override
 	public IBinder onBind(Intent intent) {
-		// TODO Auto-generated method stub
-		System.out.println("是否执行了 onBind");
 		return binder;
 	}
 
 	@Override
 	public void onDestroy() {
-		// TODO Auto-generated method stub
 		super.onDestroy();
-		System.out.println("downloadservice ondestroy");
-		// 假如被销毁了，无论如何都默认取消了。
 		app.setDownload(false);
 	}
 
 	@Override
 	public boolean onUnbind(Intent intent) {
-		// TODO Auto-generated method stub
-		System.out.println("downloadservice onUnbind");
 		return super.onUnbind(intent);
 	}
 
 	@Override
 	public void onRebind(Intent intent) {
-		// TODO Auto-generated method stub
-
 		super.onRebind(intent);
-		System.out.println("downloadservice onRebind");
 	}
 
 	@Override
 	public void onCreate() {
-		// TODO Auto-generated method stub
 		super.onCreate();
 		binder = new DownloadBinder();
 		mNotificationManager = (NotificationManager) getSystemService(android.content.Context.NOTIFICATION_SERVICE);
@@ -193,7 +180,6 @@ public class DownloadService extends Service {
 	}
 
 	private void startDownload() {
-		// TODO Auto-generated method stub
 		canceled = false;
 		downloadApk();
 	}
@@ -250,7 +236,7 @@ public class DownloadService extends Service {
 	/**
 	 * 安装apk
 	 * 
-	 * @param url
+	 * @param
 	 */
 	private void installApk() {
 		File apkfile = new File(saveFileName);

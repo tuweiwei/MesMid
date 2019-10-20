@@ -1,4 +1,4 @@
-package com.yf.mesmid.ui.activity;
+package com.yf.mesmid.ui.activitys.activity;
 
 import java.util.Arrays;
 

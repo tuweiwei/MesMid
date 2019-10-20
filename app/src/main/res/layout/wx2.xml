@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.activity.SopActivity" >
+    tools:context=".ui.activitys.activity.SopActivity" >
 
     <RelativeLayout
     android:id="@+id/layoutmenu"
@@ -54,16 +54,16 @@
 		        android:textSize="22dip"
 		        android:layout_weight="1"/>
 
-            <EditText
-	           android:id="@+id/edit_tm"
-	           android:layout_width="400dip"
-	           android:layout_height="wrap_content"
-	           android:layout_marginLeft="20dip"
-	           android:ems="8"
-	           android:background="@android:drawable/edit_text"
-	           android:visibility="visible"
-	           android:editable="true"
-	           android:layout_weight="1"/>
+			<EditText
+				android:id="@+id/edit_tm"
+				android:layout_width="187dp"
+				android:layout_height="wrap_content"
+				android:layout_marginLeft="20dip"
+				android:layout_weight="1"
+				android:background="@android:drawable/edit_text"
+				android:editable="true"
+				android:ems="8"
+				android:visibility="visible" />
 	    </LinearLayout>
 
         <!--
@@ -130,15 +130,16 @@
 		        android:text="不良原因:   "
 		        android:textSize="22dip"
 		        android:layout_weight="1"/>
-            <EditText
-	           android:id="@+id/edit_wxtm"
-	           android:layout_width="400dip"
-	           android:layout_height="wrap_content"
-	           android:layout_marginLeft="50dip"
-	           android:background="@android:drawable/edit_text"
-	           android:visibility="visible"
-	           android:editable="true"
-	           android:layout_weight="1"/>
+
+			<EditText
+				android:id="@+id/edit_wxtm"
+				android:layout_width="400dip"
+				android:layout_height="wrap_content"
+				android:layout_marginLeft="50dip"
+				android:layout_weight="1"
+				android:background="@android:drawable/edit_text"
+				android:editable="true"
+				android:visibility="visible" />
 
 	    </LinearLayout>
         <EditText
@@ -308,15 +309,16 @@
 		        android:textSize="22dip"
 		        android:layout_marginLeft="0dip"
 		        android:layout_weight="1"/>
-            <EditText
-	           android:id="@+id/edit_zwxx"
-	           android:layout_width="wrap_content"
-	           android:layout_height="wrap_content"
-	           android:layout_marginLeft="5dip"
-	           android:background="@android:drawable/edit_text"
-	           android:visibility="visible"
-	           android:editable="true"
-	           android:layout_weight="10"/>
+
+			<EditText
+				android:id="@+id/edit_zwxx"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_marginLeft="5dip"
+				android:layout_weight="10"
+				android:background="@android:drawable/edit_text"
+				android:editable="true"
+				android:visibility="visible" />
 	    </LinearLayout>
 
 	    <LinearLayout

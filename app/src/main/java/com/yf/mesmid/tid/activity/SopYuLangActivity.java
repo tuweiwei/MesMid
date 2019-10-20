@@ -1,4 +1,4 @@
-package com.yf.mesmid.ui.activity;
+package com.yf.mesmid.ui.activitys.activity;
 
 import android.os.Bundle;
 import android.os.Handler;

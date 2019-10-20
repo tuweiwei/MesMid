@@ -1,4 +1,4 @@
-package com.yf.mesmid.ui.activity;
+package com.yf.mesmid.ui.activitys.activity;
 
 public class Material {
 	private int number; //���

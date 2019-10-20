@@ -1,4 +1,4 @@
-package com.yf.mesmid.ui.activity;
+package com.yf.mesmid.ui.activitys.activity;
 
 import java.sql.SQLException;
 
@@ -16,8 +16,6 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -25,18 +23,18 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 
+/**
+ * @author tuwei
+ */
 public class MainActivity extends Activity{
 	private ProgressDialog mDialog;
 	private AlertDialog mErrorDialog;
 	private Button Btn_sc = null;
-	private Button Btn_cj = null;
-	private WIFIBroadcastReceiver WifiReceiver;
-	private String curversion;
+	private WIFIBroadcastReceiver wifiReceiver;
 	private UpdataInfo info;
 	private boolean djjr = false;
 	private int gdxh = 0;
 	private int gxxh = 0;
-	private String user;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -53,70 +51,25 @@ public class MainActivity extends Activity{
 				intent.putExtra("djjr", djjr);
 				intent.putExtra("gdxh", gdxh);
 				intent.putExtra("gxxh", gxxh);
-				intent.putExtra("user", user);
-				intent.setClass(getApplicationContext(), JobListActivity.class);
-				startActivity(intent);
-				finish();
-			}
-		});
-		Btn_cj = (Button) findViewById(R.id.btn_cj);
-		Btn_cj.setOnClickListener(new OnClickListener() {
-			@Override
-			public void onClick(View arg0) {
-				Intent intent = new Intent();
-//				intent.setClass(getApplicationContext(), OQCActivity.class);
-				DatabaseOper.SC_MODE = DatabaseOper.FG_MODE;
-				DatabaseOper.GX_MODE = DatabaseOper.ZC_MODE;
-				intent.putExtra("djjr", djjr);
-				intent.putExtra("gdxh", gdxh);
-				intent.putExtra("gxxh", gxxh);
-				intent.putExtra("user", user);
 				intent.setClass(getApplicationContext(), JobListActivity.class);
 				startActivity(intent);
 				finish();
 			}
 		});
 
-		curversion = getVersion();
 		mDialog = new ProgressDialog(this);
-
 		DatabaseOper.SC_MODE=DatabaseOper.ZC_MODE;
 		DatabaseOper.GX_MODE=DatabaseOper.ZC_MODE;
 
-		djjr = getIntent().getBooleanExtra("djjr", false);
+		wifiReceiver = new WIFIBroadcastReceiver();
+		IntentFilter Wififilter = new IntentFilter();
+		Wififilter.addAction(DatabaseOper.FirstWIFI_MSG);
+		Wififilter.addAction(DatabaseOper.RepeatWIFI_MSG);
+		registerReceiver(wifiReceiver, Wififilter);
 
-		if(djjr){
-			gdxh = getIntent().getIntExtra("gdxh", 0);
-			gxxh = getIntent().getIntExtra("gxxh", 0);
-			user = getIntent().getStringExtra("user");
-		}
-		
-		DatabaseOper.InitDatabaseConfig(MyConsts.ConfigPath);
-
-		if(DatabaseOper.ConnMode.equals(DatabaseOper.WIRE_CONN)){
-			RScan rScan = new RScan(MyConsts.GET_UPDATEINFO);
-			Thread thread = new Thread(rScan);
-			thread.start();
-		} else{
-			WifiReceiver = new WIFIBroadcastReceiver();
-			IntentFilter Wififilter = new IntentFilter();
-			Wififilter.addAction(DatabaseOper.FirstWIFI_MSG);
-			Wififilter.addAction(DatabaseOper.RepeatWIFI_MSG);
-			registerReceiver(WifiReceiver, Wififilter);
-			Intent intent = new Intent(this, WifiService.class);
-			intent.putExtra("repeatquery", false);
-			startService(intent);
-		}
-	}
-
-	private String getVersion() {
-		try {
-			PackageManager manager = getPackageManager();
-			PackageInfo info = manager.getPackageInfo(getPackageName(), 0);
-			return info.versionName;
-		} catch (Exception e) {
-			return "";
-		}
+		Intent intent = new Intent(this, WifiService.class);
+		intent.putExtra("repeatquery", false);
+		startService(intent);
 	}
 
 	private boolean isNeedUpdate(String versiontext) {
@@ -135,7 +88,7 @@ public class MainActivity extends Activity{
 	private void showUpdateDialog() {
 		AlertDialog.Builder builder = new AlertDialog.Builder(this);
 		builder.setTitle("" + info.getVersion());
-		builder.setMessage(info.getDescription() + "\n\n" + "");
+		builder.setMessage(info.getDescription());
 		builder.setPositiveButton("", new DialogInterface.OnClickListener() {
 			@Override
 			public void onClick(DialogInterface dialog, int which) {
@@ -163,10 +116,10 @@ public class MainActivity extends Activity{
 		dialog.show();
 	}
 	
-	private void TipError(String strInfo, final boolean bExit) {
+	private void TipError(String strInfo) {
 		AlertDialog.Builder build = new AlertDialog.Builder(MainActivity.this);
-		build.setTitle("                             \n\n\n\n");
-		build.setMessage(strInfo+"\n\n");
+		build.setTitle("error");
+		build.setMessage(strInfo);
 		mErrorDialog = build.create();
 		mErrorDialog.show();
 		SendDataMessage(MyConsts.ERRORDIALOG_CANCEL, "", 3);
@@ -185,7 +138,7 @@ public class MainActivity extends Activity{
 			int Code = msg.what;
 			if(Code == MyConsts.ERROR_NOEXIT){
 				mDialog.cancel();
-				TipError((String)msg.obj, false);
+				TipError((String)msg.obj);
 			}
 			else if(Code == MyConsts.CONNECT_SUCCESS){
 				mDialog.setMessage((String)msg.obj);
@@ -205,7 +158,7 @@ public class MainActivity extends Activity{
 				}
 			}
 			else if(MyConsts.UPDATE_ERROR == Code){
-				TipError((String)msg.obj, false);
+				TipError((String)msg.obj);
 			}
 		}
 	};
@@ -213,7 +166,7 @@ public class MainActivity extends Activity{
 	@Override
 	protected void onDestroy() {
 		super.onDestroy();
-		unregisterReceiver(WifiReceiver);
+		unregisterReceiver(wifiReceiver);
 	}
 	
 	class RScan implements Runnable{
@@ -237,7 +190,7 @@ public class MainActivity extends Activity{
 				}else{
 					info = updatainfo;
 					String strUpdate;
-					if(isNeedUpdate(curversion)){
+					if(isNeedUpdate("4444444444444444444444444444")){
 						strUpdate = MyConsts.STRING_UPDATE;
 					}else strUpdate = MyConsts.STRING_NOUPDATE;
 					SendDataMessage(MyConsts.UPDATE, strUpdate, 0);
@@ -263,7 +216,6 @@ public class MainActivity extends Activity{
 					try {
 						DatabaseOper.con.close();
 					} catch (SQLException e) {
-						e.printStackTrace();
 					}
 					DatabaseOper.con = null;
 				}

@@ -117,11 +117,11 @@ public class DatabaseOper {
 	static {
 		ConnMode =  "wifi";
 		UserName = "sa";
-		PassWord = "sql2008";
-		Address = "192.168.1.114:1433";
-		DatabaseName = "mes_yf";
-		WifiSSID = "";
-		WifiPWD = "";
+		PassWord = "reedbel";
+		Address = "192.168.29.3:1433";
+		DatabaseName = "mes2013_10";
+		WifiSSID = "TP-LINK 2.4G";
+		WifiPWD = "qwe1234567";
 	}
 
 	static public boolean Connect() {

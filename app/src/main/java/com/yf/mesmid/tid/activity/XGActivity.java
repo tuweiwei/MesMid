@@ -91,7 +91,7 @@ public class XGActivity extends Activity{
 			
 			@Override
 			public void onCheckedChanged(CompoundButton arg0, boolean arg1) {
-				if(arg1) Toast.makeText(XGActivity.this, "扫描工号即代表查询全部信息", 4000).show();
+				if(arg1) Toast.makeText(XGActivity.this, "扫描工号即代表查询全部信息", Toast.LENGTH_LONG).show();
 				
 			}
 		});
@@ -155,22 +155,11 @@ public class XGActivity extends Activity{
 	private void TipError(String strInfo, final boolean bExit)
 	{
 		AlertDialog.Builder build = new AlertDialog.Builder(XGActivity.this);
-		build.setTitle("sssbbb");
+		build.setTitle("异常提示");
 		build.setMessage(strInfo+"\n\n");
-		/*build.setPositiveButton("ȷ��", new DialogInterface.OnClickListener() {
-			
-			@Override
-			public void onClick(DialogInterface dialog, int which) {
-				if(bExit){
-					android.os.Process.killProcess(android.os.Process.myPid());
-					System.exit(0);
-				}
-				
-			}
-		});*/
 		mErrorDialog = build.create();
 		mErrorDialog.show();
-		SendDataMessage(MyConsts.ERRORDIALOG_CANCEL, "sb", 3);
+		SendDataMessage(MyConsts.ERRORDIALOG_CANCEL, "", 3);
 	}
 	
 	private void SendDataMessage(int Code, Object Data, int delay){
@@ -228,7 +217,7 @@ public class XGActivity extends Activity{
 		public void run() {
 			if(null == DatabaseOper.con){
 				if ( ! DatabaseOper.Connect() ) {
-					SendDataMessage(MyConsts.ERROR_NOEXIT, "���ݿ�����ʧ��", 0);
+					SendDataMessage(MyConsts.ERROR_NOEXIT, "数据库连接失败", 0);
 					return;
 				}else SendDataMessage(MyConsts.CONNECT_SUCCESS, "数据库连接成功，正在扫描条码", 0);
 			}

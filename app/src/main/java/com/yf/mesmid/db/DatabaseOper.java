@@ -122,6 +122,7 @@ public class DatabaseOper {
 		DatabaseName = "mes2013_10";
 		WifiSSID = "TP-LINK 2.4G";
 		WifiPWD = "qwe1234567";
+		Connect();
 	}
 
 	static public boolean Connect() {

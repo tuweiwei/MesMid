@@ -54,21 +54,21 @@ public class MainActivity extends Activity{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.zy);
 
-		Btn_sc = (Button) findViewById(R.id.btn_sc);
-		Btn_sc.setOnClickListener(new OnClickListener() {
-			@Override
-			public void onClick(View arg0) {
-				DatabaseOper.SC_MODE = DatabaseOper.ZC_MODE;
-				DatabaseOper.GX_MODE = DatabaseOper.ZC_MODE;
-				Intent intent = new Intent();
-				intent.putExtra("djjr", djjr);
-				intent.putExtra("gdxh", gdxh);
-				intent.putExtra("gxxh", gxxh);
-				intent.setClass(getApplicationContext(), JobListActivity.class);
-				startActivity(intent);
-				finish();
-			}
-		});
+//		Btn_sc = (Button) findViewById(R.id.btn_sc);
+//		Btn_sc.setOnClickListener(new OnClickListener() {
+//			@Override
+//			public void onClick(View arg0) {
+//				DatabaseOper.SC_MODE = DatabaseOper.ZC_MODE;
+//				DatabaseOper.GX_MODE = DatabaseOper.ZC_MODE;
+//				Intent intent = new Intent();
+//				intent.putExtra("djjr", djjr);
+//				intent.putExtra("gdxh", gdxh);
+//				intent.putExtra("gxxh", gxxh);
+//				intent.setClass(getApplicationContext(), JobListActivity.class);
+//				startActivity(intent);
+//				finish();
+//			}
+//		});
 
 		mDialog = new ProgressDialog(this);
 
@@ -83,6 +83,10 @@ public class MainActivity extends Activity{
 		Intent intent = new Intent(this, WifiService.class);
 		intent.putExtra("repeatquery", false);
 		startService(intent);
+
+		intent.setClass(getApplicationContext(), XGActivity.class);
+		startActivity(intent);
+		finish();
 	}
 
 	private boolean isNeedUpdate(String versiontext) {

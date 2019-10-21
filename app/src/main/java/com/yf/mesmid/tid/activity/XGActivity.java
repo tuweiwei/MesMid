@@ -19,7 +19,6 @@ import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.yf.mesmid.barcodebind.UserActivity;
 import com.yf.mesmid.consts.MyConsts;
 import com.yf.mesmid.db.DatabaseOper;
 import com.yf.mesmid.R;
@@ -55,8 +54,8 @@ public class XGActivity extends Activity{
 			@Override
 			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
 				if(isChecked){
-					Intent intent = new Intent(getApplicationContext(), UserActivity.class);
-					startActivity(intent);
+//					Intent intent = new Intent(getApplicationContext(), UserActivity.class);
+//					startActivity(intent);
 				}
 				
 			}
@@ -67,8 +66,8 @@ public class XGActivity extends Activity{
 			@Override
 			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
 				if(isChecked){
-					Intent intent = new Intent(getApplicationContext(), UserActivity.class);
-					startActivity(intent);
+//					Intent intent = new Intent(getApplicationContext(), UserActivity.class);
+//					startActivity(intent);
 				}
 				
 			}
@@ -79,8 +78,8 @@ public class XGActivity extends Activity{
 			@Override
 			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
 				if(isChecked){
-					Intent intent = new Intent(getApplicationContext(), UserActivity.class);
-					startActivity(intent);
+//					Intent intent = new Intent(getApplicationContext(), UserActivity.class);
+//					startActivity(intent);
 				}
 				
 			}
@@ -148,8 +147,8 @@ public class XGActivity extends Activity{
 			@Override
 			public void afterTextChanged(Editable arg0) {}
 		});
-		Intent intent = new Intent(getApplicationContext(), UserActivity.class);
-		startActivity(intent);
+//		Intent intent = new Intent(getApplicationContext(), UserActivity.class);
+//		startActivity(intent);
 	}
 	
 	private void TipError(String strInfo, final boolean bExit)

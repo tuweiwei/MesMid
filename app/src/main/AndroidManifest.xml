@@ -17,8 +17,9 @@
 	<uses-permission android:name="android.permission.DISABLE_KEYGUARD"></uses-permission>
 	<!-- 亮屏的权限 -->
 	<uses-permission android:name="android.permission.WAKE_LOCK"></uses-permission>
+
     <application
-        android:name="com.yf.mesupdate.MyApp"
+        android:name=".app.MyApp"
         android:allowBackup="true"
         android:icon="@drawable/yf_201311191178"
         android:label="@string/app_name"
@@ -26,7 +27,7 @@
         >
 
         <activity
-            android:name="com.yf.mesmid.UserActivity"
+            android:name=".ui.activitys.activity.UserActivity"
             android:label="@string/user_name" 
             android:screenOrientation="landscape"
             android:windowSoftInputMode="adjustUnspecified|stateHidden"
@@ -37,7 +38,7 @@
         </activity>
 
          <activity
-            android:name="com.yf.mesmid.KeyBoard"
+            android:name=".ui.activitys.activity.KeyBoard"
             android:label="@string/keyboard_name"
             android:screenOrientation="landscape"
             android:windowSoftInputMode="adjustUnspecified|stateHidden"
@@ -47,17 +48,16 @@
         </activity>
 
         <activity
-            android:name="com.yf.mesmid.SopActivity"
+            android:name=".ui.activitys.activity.SopActivity"
             android:label="@string/app_name" 
             android:screenOrientation="landscape"
             android:windowSoftInputMode="adjustUnspecified|stateHidden"
-            
             android:configChanges="orientation">
             
         </activity>
 
          <activity
-            android:name="com.yf.mesmid.SopYuLangActivity"
+            android:name=".ui.activitys.activity.SopYuLangActivity"
             android:label="@string/app_name" 
             android:screenOrientation="landscape"
             android:windowSoftInputMode="adjustUnspecified|stateHidden"
@@ -65,7 +65,7 @@
         </activity>
 
         <activity
-            android:name="com.yf.mesmid.XGActivity"
+            android:name=".ui.activitys.activity.XGActivity"
             android:label="@string/app_name" 
             android:screenOrientation="landscape"
             android:windowSoftInputMode="adjustUnspecified|stateHidden"
@@ -73,7 +73,7 @@
         </activity>
 
         <activity
-            android:name="com.yf.mesmid.GWActivity"
+            android:name=".ui.activitys.GWActivity"
             android:label="@string/app_name" 
             android:screenOrientation="landscape"
             android:windowSoftInputMode="adjustUnspecified|stateHidden"
@@ -81,7 +81,15 @@
         </activity>
 
         <activity
-            android:name="com.yf.mesmid.WXActivity"
+            android:name=".ui.activitys.activity.OQCActivity"
+            android:label="@string/app_name" 
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden"
+            android:configChanges="orientation">
+            
+        </activity>
+        <activity
+            android:name=".ui.activitys.activity.IQCActivity"
             android:label="@string/app_name" 
             android:screenOrientation="landscape"
             android:windowSoftInputMode="adjustUnspecified|stateHidden"
@@ -90,24 +98,7 @@
         </activity>
 
         <activity
-            android:name="com.yf.mesmid.OQCActivity"
-            android:label="@string/app_name" 
-            android:screenOrientation="landscape"
-            android:windowSoftInputMode="adjustUnspecified|stateHidden"
-            android:configChanges="orientation">
-            
-        </activity>
-        <activity
-            android:name="com.yf.mesmid.IQCActivity"
-            android:label="@string/app_name" 
-            android:screenOrientation="landscape"
-            android:windowSoftInputMode="adjustUnspecified|stateHidden"
-            android:configChanges="orientation">
-            
-        </activity>
-
-        <activity
-            android:name="com.yf.mesmid.MainActivity"
+            android:name=".ui.activitys.activity.MainActivity"
             android:label="@string/app_name" 
             android:screenOrientation="landscape"
             android:windowSoftInputMode="adjustUnspecified|stateHidden"
@@ -119,19 +110,19 @@
         </activity>
 
         <activity
-            android:name="com.yf.mesmid.JobListActivity"
+            android:name=".ui.activitys.activity.JobListActivity"
             android:label="@string/app_name" 
             android:screenOrientation="landscape"
             android:windowSoftInputMode="adjustUnspecified|stateHidden"
             
             android:configChanges="orientation">
         </activity>
-        <activity android:name="com.yf.mesupdate.NotificationUpdateActivity" 
+        <activity android:name=".ui.activitys.activity.NotificationUpdateActivity"
             android:theme="@android:style/Theme.Dialog">
         </activity>
-        <service android:name="com.yf.mesupdate.DownloadService" >
+        <service android:name=".service.DownloadService" >
         </service>
-        <service android:name="com.yf.mesmid.WifiService" >
+        <service android:name="com.yf.mesmid.service.WifiService" >
         </service>
         <!-- 开机启动 -->
         <!-- <receiver android:name="com.yf.mesmid.AutoStartReceiver">

@@ -14,4 +14,6 @@ public interface MyConsts {
     int UPDATE_ERROR = 131;
     String STRING_UPDATE = "APP";
     String STRING_NOUPDATE = "APP";
+    int CX_SUCCESS = 103;
+
 }

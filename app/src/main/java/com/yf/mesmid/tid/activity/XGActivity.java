@@ -4,19 +4,13 @@ import java.util.List;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
-import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.os.Environment;
 import android.os.Handler;
 import android.os.Message;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
 import android.widget.CompoundButton;
 import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.EditText;
@@ -26,38 +20,31 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.yf.mesmid.barcodebind.UserActivity;
+import com.yf.mesmid.consts.MyConsts;
 import com.yf.mesmid.db.DatabaseOper;
 import com.yf.mesmid.R;
 import com.yf.mesmid.tid.adapter.XGAdapt;
 import com.yf.mesmid.util.ScanSound;
 import com.yf.mesmid.entity.XGInfo;
 
+/**
+ * @author tuwei
+ */
 public class XGActivity extends Activity{
 	private EditText EditXG;
 	private boolean bEnter = false;
 	private TextView TextOpertips;
 	private ProgressDialog mDialog;
 	private AlertDialog mErrorDialog;
-	
-	private final String ConfigPath = Environment.getExternalStorageDirectory().getPath()+"/MESConfig.ini";
-	private final int ERROR_NOEXIT = 100;
-	private final int CONNECT_SUCCESS = 101;
-	private final int SCANBARCODE_SUCCESS = 102;
-	private final int CX_SUCCESS = 103;
-	
-	private final int ERRORDIALOG_CANCEL = 120;
-	
 	private RadioButton RBXRadio;
 	private RadioButton HWRadio;
 	private RadioButton JQJBRadio;
 	private RadioButton RGJBRadio;
 	private RadioButton CXRadio;
-	
 	private ListView mlist;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.xg);
 		mDialog = new ProgressDialog(this);
@@ -111,7 +98,6 @@ public class XGActivity extends Activity{
 		TextOpertips = (TextView) findViewById(R.id.Text_xginfo);
 		mlist = (ListView) findViewById(R.id.listView_xg);
 		EditXG = (EditText) findViewById(R.id.edit_xg);
-		//EditSop.setText("S1311000124");
 		EditXG.addTextChangedListener(new TextWatcher() {
 			
 			@Override
@@ -184,7 +170,7 @@ public class XGActivity extends Activity{
 		});*/
 		mErrorDialog = build.create();
 		mErrorDialog.show();
-		SendDataMessage(ERRORDIALOG_CANCEL, "sb", 3);
+		SendDataMessage(MyConsts.ERRORDIALOG_CANCEL, "sb", 3);
 	}
 	
 	private void SendDataMessage(int Code, Object Data, int delay){
@@ -198,25 +184,25 @@ public class XGActivity extends Activity{
 		@Override
 		public void handleMessage(android.os.Message msg) {
 			int Code = msg.what;
-			if(Code == ERROR_NOEXIT){
+			if(Code == MyConsts.ERROR_NOEXIT){
 				String strResult = (String)msg.obj;
 				mDialog.cancel();
 				TextOpertips.setTextColor(Color.RED);
 				TextOpertips.setText(strResult);
 				TipError(strResult, false);
 			}
-			else if(Code == CONNECT_SUCCESS){
+			else if(Code == MyConsts.CONNECT_SUCCESS){
 				mDialog.setMessage((String)msg.obj);
 			}
-			else if(Code == SCANBARCODE_SUCCESS){
+			else if(Code == MyConsts.SCANBARCODE_SUCCESS){
 				String strResult = (String)msg.obj;
 				mDialog.setMessage(strResult);
 				mDialog.cancel();
 				TextOpertips.setTextColor(Color.BLUE);
 				TextOpertips.setText(strResult);
 			}
-			/*��ѯ�ɹ�*/
-			else if(Code == CX_SUCCESS){
+
+			else if(Code == MyConsts.CX_SUCCESS){
 				mDialog.cancel();
 				TextOpertips.setTextColor(Color.GREEN);
 				TextOpertips.setText("��ѯ�ɹ�");
@@ -224,7 +210,7 @@ public class XGActivity extends Activity{
 				XGAdapt adapt = new XGAdapt(getApplicationContext(), list);
 				mlist.setAdapter(adapt);
 			}
-			else if(ERRORDIALOG_CANCEL == Code){
+			else if(MyConsts.ERRORDIALOG_CANCEL == Code){
 				mErrorDialog.cancel();
 			}
 		};
@@ -242,28 +228,28 @@ public class XGActivity extends Activity{
 		public void run() {
 			if(null == DatabaseOper.con){
 				if ( ! DatabaseOper.Connect() ) {
-					SendDataMessage(ERROR_NOEXIT, "���ݿ�����ʧ��", 0);
+					SendDataMessage(MyConsts.ERROR_NOEXIT, "���ݿ�����ʧ��", 0);
 					return;
-				}else SendDataMessage(CONNECT_SUCCESS, "���ݿ����ӳɹ�������ɨ������...", 0);
+				}else SendDataMessage(MyConsts.CONNECT_SUCCESS, "���ݿ����ӳɹ�������ɨ������...", 0);
 			}
 			if(state.equals("5")){
 				List<XGInfo> list = DatabaseOper.CXXGInfo(barcode);
 				if(null == list){
 					ScanSound.PlayMusic(getApplicationContext(), ScanSound.MUSIC_ERROR);
-					SendDataMessage(ERROR_NOEXIT, "��ѯ�쳣", 0);
+					SendDataMessage(MyConsts.ERROR_NOEXIT, "��ѯ�쳣", 0);
 				}else{
 					ScanSound.PlayMusic(getApplicationContext(), ScanSound.MUSIC_RIGHT);
-					SendDataMessage(CX_SUCCESS, list, 0);
+					SendDataMessage(MyConsts.CX_SUCCESS, list, 0);
 				}
 			}else{
 				int xh =DatabaseOper.ScanSMTInfo(barcode, "0", state, "0");
 				if(100 != xh){
 					ScanSound.PlayMusic(getApplicationContext(), ScanSound.MUSIC_ERROR);
-					SendDataMessage(ERROR_NOEXIT, DatabaseOper.ScanResult, 0);
+					SendDataMessage(MyConsts.ERROR_NOEXIT, DatabaseOper.ScanResult, 0);
 				}
 				else{
 					ScanSound.PlayMusic(getApplicationContext(), ScanSound.MUSIC_RIGHT);
-					SendDataMessage(SCANBARCODE_SUCCESS, DatabaseOper.ScanResult, 0);
+					SendDataMessage(MyConsts.SCANBARCODE_SUCCESS, DatabaseOper.ScanResult, 0);
 				}
 			}
 		}

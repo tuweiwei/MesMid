@@ -28,6 +28,7 @@ import android.widget.Toast;
 import com.yf.mesmid.barcodebind.UserActivity;
 import com.yf.mesmid.db.DatabaseOper;
 import com.yf.mesmid.R;
+import com.yf.mesmid.tid.adapter.XGAdapt;
 import com.yf.mesmid.util.ScanSound;
 import com.yf.mesmid.entity.XGInfo;
 
@@ -168,7 +169,7 @@ public class XGActivity extends Activity{
 	private void TipError(String strInfo, final boolean bExit)
 	{
 		AlertDialog.Builder build = new AlertDialog.Builder(XGActivity.this);
-		build.setTitle("�쳣��ʾ                              \n\n\n\n");
+		build.setTitle("sssbbb");
 		build.setMessage(strInfo+"\n\n");
 		/*build.setPositiveButton("ȷ��", new DialogInterface.OnClickListener() {
 			
@@ -183,7 +184,7 @@ public class XGActivity extends Activity{
 		});*/
 		mErrorDialog = build.create();
 		mErrorDialog.show();
-		SendDataMessage(ERRORDIALOG_CANCEL, "����Ի�����ʧ", 3);
+		SendDataMessage(ERRORDIALOG_CANCEL, "sb", 3);
 	}
 	
 	private void SendDataMessage(int Code, Object Data, int delay){
@@ -194,6 +195,7 @@ public class XGActivity extends Activity{
 	}
 	
 	Handler handler = new Handler(){
+		@Override
 		public void handleMessage(android.os.Message msg) {
 			int Code = msg.what;
 			if(Code == ERROR_NOEXIT){
@@ -206,7 +208,6 @@ public class XGActivity extends Activity{
 			else if(Code == CONNECT_SUCCESS){
 				mDialog.setMessage((String)msg.obj);
 			}
-			/*��ȡSOP�������*/
 			else if(Code == SCANBARCODE_SUCCESS){
 				String strResult = (String)msg.obj;
 				mDialog.setMessage(strResult);
@@ -239,9 +240,7 @@ public class XGActivity extends Activity{
 		}
 		@Override
 		public void run() {
-			if(null == DatabaseOper.con)
-			{
-				//DatabaseOper.InitDatabaseConfig(ConfigPath);
+			if(null == DatabaseOper.con){
 				if ( ! DatabaseOper.Connect() ) {
 					SendDataMessage(ERROR_NOEXIT, "���ݿ�����ʧ��", 0);
 					return;
@@ -267,80 +266,6 @@ public class XGActivity extends Activity{
 					SendDataMessage(SCANBARCODE_SUCCESS, DatabaseOper.ScanResult, 0);
 				}
 			}
-			
 		}
-		
-	}
-	
-	private static class XGHolder {
-        TextView number;
-        TextView tm;
-        TextView jlrq;
-        TextView ztbz;
-        TextView jlry;
-	}
-	
-	private class XGAdapt extends BaseAdapter{
-		Context context;
-		List<XGInfo> list;
-		
-		XGAdapt(Context context, List<XGInfo> List){
-			this.context = context;
-			this.list = List;
-		}
-		
-		@Override
-		public int getCount() {
-			// TODO Auto-generated method stub
-			return list.size();
-		}
-
-		@Override
-		public Object getItem(int position) {
-			// TODO Auto-generated method stub
-			return list.get(position);
-		}
-
-		@Override
-		public long getItemId(int position) {
-			// TODO Auto-generated method stub
-			return position;
-		}
-
-		@Override
-		public View getView(int position, View convertView, ViewGroup parent) {
-			LayoutInflater inflater = LayoutInflater.from(context);
-			View view = inflater.inflate(R.layout.xgitem, null);
-			XGHolder holder = new XGHolder();
-			holder.number = (TextView) view.findViewById(R.id.textItem_number);
-			holder.tm = (TextView) view.findViewById(R.id.textItem_tm);
-			holder.jlrq = (TextView) view.findViewById(R.id.textItem_jlrq);
-			holder.ztbz = (TextView) view.findViewById(R.id.textItem_ztbz);
-			holder.jlry = (TextView) view.findViewById(R.id.textItem_jlry);
-			int number = list.get(position).getNumber();
-			String tm = list.get(position).getBarcode();
-			String jlrq = list.get(position).getRq();
-			String ztbz = list.get(position).getZt();
-			String jlry = list.get(position).getRy();
-			
-			if(0 == number) {
-				view.setClickable(false);
-				holder.number .setText("�� ��");
-			}
-			else {
-				holder.number .setText(""+number);
-				holder.tm .setText(tm);
-				holder.jlrq .setText(jlrq);
-				if("1".equals(ztbz)) holder.ztbz .setText("�����");
-				else if("2".equals(ztbz)) holder.ztbz .setText("����");
-				else if("3".equals(ztbz)) holder.ztbz .setText("��������");
-				else if("4".equals(ztbz)) holder.ztbz .setText("�˹�����");
-				else holder.ztbz .setText("δ֪״̬");
-				holder.jlry .setText(jlry);
-			}
-			
-			return view;
-		}
-		
 	}
 }

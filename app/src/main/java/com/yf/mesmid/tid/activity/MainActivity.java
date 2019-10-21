@@ -25,6 +25,17 @@ import android.widget.Button;
 
 /**
  * @author tuwei
+ *
+ * /**
+ *  * [Config]
+ *  * connmode=wire
+ *  * username=sa
+ *  * password=reedbel
+ *  * address=192.168.29.3:1433
+ *  * databasename=mes2013_10
+ *  * wifissid=TP-LINK 2.4G
+ *  * wifipwd=qwe1234567
+ *
  */
 public class MainActivity extends Activity{
 	private ProgressDialog mDialog;

@@ -27,7 +27,7 @@
         >
 
         <activity
-            android:name=".ui.activitys.activity.UserActivity"
+            android:name=".tid.activity.UserActivity"
             android:label="@string/user_name" 
             android:screenOrientation="landscape"
             android:windowSoftInputMode="adjustUnspecified|stateHidden"
@@ -38,7 +38,7 @@
         </activity>
 
          <activity
-            android:name=".ui.activitys.activity.KeyBoard"
+            android:name=".tid.activity.KeyBoard"
             android:label="@string/keyboard_name"
             android:screenOrientation="landscape"
             android:windowSoftInputMode="adjustUnspecified|stateHidden"
@@ -48,7 +48,7 @@
         </activity>
 
         <activity
-            android:name=".ui.activitys.activity.SopActivity"
+            android:name=".tid.activity.SopActivity"
             android:label="@string/app_name" 
             android:screenOrientation="landscape"
             android:windowSoftInputMode="adjustUnspecified|stateHidden"
@@ -57,7 +57,7 @@
         </activity>
 
          <activity
-            android:name=".ui.activitys.activity.SopYuLangActivity"
+            android:name=".tid.activity.SopYuLangActivity"
             android:label="@string/app_name" 
             android:screenOrientation="landscape"
             android:windowSoftInputMode="adjustUnspecified|stateHidden"
@@ -65,7 +65,7 @@
         </activity>
 
         <activity
-            android:name=".ui.activitys.activity.XGActivity"
+            android:name=".tid.activity.XGActivity"
             android:label="@string/app_name" 
             android:screenOrientation="landscape"
             android:windowSoftInputMode="adjustUnspecified|stateHidden"
@@ -73,32 +73,7 @@
         </activity>
 
         <activity
-            android:name=".ui.activitys.GWActivity"
-            android:label="@string/app_name" 
-            android:screenOrientation="landscape"
-            android:windowSoftInputMode="adjustUnspecified|stateHidden"
-            android:configChanges="orientation">
-        </activity>
-
-        <activity
-            android:name=".ui.activitys.activity.OQCActivity"
-            android:label="@string/app_name" 
-            android:screenOrientation="landscape"
-            android:windowSoftInputMode="adjustUnspecified|stateHidden"
-            android:configChanges="orientation">
-            
-        </activity>
-        <activity
-            android:name=".ui.activitys.activity.IQCActivity"
-            android:label="@string/app_name" 
-            android:screenOrientation="landscape"
-            android:windowSoftInputMode="adjustUnspecified|stateHidden"
-            android:configChanges="orientation">
-            
-        </activity>
-
-        <activity
-            android:name=".ui.activitys.activity.MainActivity"
+            android:name=".tid.activity.MainActivity"
             android:label="@string/app_name" 
             android:screenOrientation="landscape"
             android:windowSoftInputMode="adjustUnspecified|stateHidden"
@@ -110,16 +85,17 @@
         </activity>
 
         <activity
-            android:name=".ui.activitys.activity.JobListActivity"
+            android:name=".tid.activity.JobListActivity"
             android:label="@string/app_name" 
             android:screenOrientation="landscape"
             android:windowSoftInputMode="adjustUnspecified|stateHidden"
-            
             android:configChanges="orientation">
         </activity>
-        <activity android:name=".ui.activitys.activity.NotificationUpdateActivity"
+
+        <activity android:name=".tid.activity.NotificationUpdateActivity"
             android:theme="@android:style/Theme.Dialog">
         </activity>
+
         <service android:name=".service.DownloadService" >
         </service>
         <service android:name="com.yf.mesmid.service.WifiService" >
@@ -131,7 +107,6 @@
 				<category android:name="android.intent.category.HOME"/>
 			</intent-filter>
 		</receiver> -->
-		
     </application>
 
 </manifest>

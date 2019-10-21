@@ -17,8 +17,6 @@ import android.os.Handler;
 import android.os.IBinder;
 import android.os.Looper;
 import android.os.Message;
-import android.util.Log;
-import android.widget.Toast;
 
 import com.yf.mesmid.db.DatabaseOper;
 
@@ -61,12 +59,6 @@ public class WifiService extends Service {
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
         super.onStartCommand(intent, flags, startId);
-        return Service.START_NOT_STICKY;
-    }
-
-    @Override
-    public void onStart(Intent intent, int startId) {
-        super.onStart(intent, startId);
         boolean RepeatQuery = intent.getBooleanExtra("repeatquery", false);
         if (RepeatQuery) {
             mWifiMsg = DatabaseOper.RepeatWIFI_MSG;
@@ -87,7 +79,6 @@ public class WifiService extends Service {
                     Intent WfiIntent = new Intent(mWifiMsg);
                     sendBroadcast(WfiIntent);
                     if (!RepeatQuery) WifiThread();
-                    return;
                 }
             }
 
@@ -108,6 +99,10 @@ public class WifiService extends Service {
         Wifimanager.setWifiEnabled(true);
         Wifimanager.startScan();
         WifiThread();
+
+
+
+        return Service.START_NOT_STICKY;
     }
 
     public boolean isWifiConnect() {

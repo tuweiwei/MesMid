@@ -69,15 +69,15 @@ public class MainActivity extends Activity{
 		});
 
 		mDialog = new ProgressDialog(this);
-		DatabaseOper.SC_MODE=DatabaseOper.ZC_MODE;
-		DatabaseOper.GX_MODE=DatabaseOper.ZC_MODE;
 
+		//注册广播
 		wifiReceiver = new WIFIBroadcastReceiver();
 		IntentFilter Wififilter = new IntentFilter();
 		Wififilter.addAction(DatabaseOper.FirstWIFI_MSG);
 		Wififilter.addAction(DatabaseOper.RepeatWIFI_MSG);
 		registerReceiver(wifiReceiver, Wififilter);
 
+		//启动服务
 		Intent intent = new Intent(this, WifiService.class);
 		intent.putExtra("repeatquery", false);
 		startService(intent);

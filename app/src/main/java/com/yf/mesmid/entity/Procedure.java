@@ -1,7 +1,5 @@
 package com.yf.mesmid.entity;
 
-import com.yf.mesmid.ui.activitys.activity.Material;
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -11,7 +9,7 @@ import lombok.NoArgsConstructor;
  */
 @Data
 @NoArgsConstructor
-@AllArgsConstructor
+@AllArgsConstructor(suppressConstructorProperties = true)
 public class Procedure {
 	private int number;
     private String procedureName;

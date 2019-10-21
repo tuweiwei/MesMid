@@ -3,7 +3,9 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion 14
     buildToolsVersion "29.0.2"
-
+    lintOptions {
+        abortOnError false
+    }
     defaultConfig {
         applicationId "com.yf.mesmid"
         minSdkVersion 8

@@ -16,6 +16,7 @@ import com.yf.mesmid.entity.JobOrder;
 import com.yf.mesmid.app.MyApp;
 import com.yf.mesmid.entity.UpdataInfo;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
@@ -310,7 +311,7 @@ public class JobListActivity  extends Activity{
 						int iCount=list.get(0);
 						if(iCount<=0) {
 							DatabaseOper.GX_MODE=DatabaseOper.ZC_MODE;
-							Toast.makeText(getApplicationContext(), "δ�ܲ�ѯ��ƥ�乤��", 3000).show();
+							Toast.makeText(getApplicationContext(), "δ�ܲ�ѯ��ƥ�乤��", Toast.LENGTH_LONG).show();
 						}
 						/*ģ����ѯ��һ���������ֱ�Ӳ鹤��*/
 						else if(iCount==1){
@@ -1628,7 +1629,7 @@ public class JobListActivity  extends Activity{
 					@Override
 					public boolean onKey(View v, int keyCode, KeyEvent event) {
 						 if (KeyEvent.KEYCODE_ENTER == keyCode && event.getAction() == KeyEvent.ACTION_DOWN) {  
-							 Toast.makeText(JobListActivity.this, "keyCode: " + keyCode, 2000).show();
+							 Toast.makeText(JobListActivity.this, "keyCode: " + keyCode, Toast.LENGTH_LONG).show();
 							 iSelMaterial = index;
 							 String batchcode = holder.batchcode.getText().toString();
 							 mDialog.setMessage("����ɨ��������...");
@@ -1645,6 +1646,7 @@ public class JobListActivity  extends Activity{
 				});
 				holder.batchcode.addTextChangedListener(new TextWatcher() {
 					
+					@SuppressLint("WrongConstant")
 					@Override
 					public void onTextChanged(CharSequence arg0, int start, int before, int count) {
 						String str = arg0.toString();
@@ -1659,7 +1661,7 @@ public class JobListActivity  extends Activity{
 							holder.batchcode.setSelection(1);
 						}
 						if(str.endsWith("\n")){
-							Toast.makeText(JobListActivity.this, "start: "+start+"before: "+before+"count: "+count, 4000).show();
+							Toast.makeText(JobListActivity.this, "start: "+start+"before: "+before+"count: "+count, Toast.LENGTH_LONG).show();
 						}
 					}
 					

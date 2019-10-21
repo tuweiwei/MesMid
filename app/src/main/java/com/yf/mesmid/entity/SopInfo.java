@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
  * @author tuwei
  */
 @Data
-@AllArgsConstructor
+@AllArgsConstructor(suppressConstructorProperties = true)
 @NoArgsConstructor
 public class SopInfo {
 	private String jopnumber;

@@ -1,5 +1,6 @@
-package com.yf.mesmid.tid.activity;
+package com.yf.mesmid.iqc;
 
+import com.yf.mesmid.barcodebind.UserActivity;
 import com.yf.mesmid.consts.MyConsts;
 import com.yf.mesmid.db.DatabaseOper;
 import com.yf.mesmid.R;

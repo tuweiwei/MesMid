@@ -1,5 +1,6 @@
-package com.yf.mesmid.tid.activity;
+package com.yf.mesmid.oqc;
 
+import com.yf.mesmid.barcodebind.UserActivity;
 import com.yf.mesmid.db.DatabaseOper;
 import com.yf.mesmid.R;
 import com.yf.mesmid.util.ScanSound;

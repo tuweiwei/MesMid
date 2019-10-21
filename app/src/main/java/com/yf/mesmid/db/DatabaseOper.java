@@ -12,7 +12,7 @@ import com.yf.mesmid.entity.SopInfo;
 import com.yf.mesmid.entity.WXList;
 import com.yf.mesmid.entity.XGInfo;
 import com.yf.mesmid.entity.UpdataInfo;
-import com.yf.mesmid.tid.activity.ScanResult;
+import com.yf.mesmid.barcodebind.ScanResult;
 
 import android.database.SQLException;
 import android.util.Log;
@@ -346,7 +346,7 @@ public class DatabaseOper {
 	}
 	
 
-	static com.yf.mesmid.tid.activity.ScanResult ScanBarcode(String PadName, String barcode) {
+	static com.yf.mesmid.barcodebind.ScanResult ScanBarcode(String PadName, String barcode) {
 		if(null == barcode) return null;
 		ScanResult result = null;
 		try {
@@ -454,7 +454,7 @@ public class DatabaseOper {
 	}
 	
 
-	public static com.yf.mesmid.tid.activity.ScanResult ScanBarcodeEx(String PadName, String barcode, String rework) {
+	public static com.yf.mesmid.barcodebind.ScanResult ScanBarcodeEx(String PadName, String barcode, String rework) {
 		if(null == barcode) return null;
 		ScanResult result = null;
 		try {

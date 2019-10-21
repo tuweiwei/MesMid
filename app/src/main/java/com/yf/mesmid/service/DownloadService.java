@@ -10,8 +10,8 @@ import java.net.URL;
 
 import com.yf.mesmid.R;
 import com.yf.mesmid.app.MyApp;
-import com.yf.mesmid.tid.activity.JobListActivity;
-import com.yf.mesmid.tid.activity.NotificationUpdateActivity;
+import com.yf.mesmid.barcodebind.JobListActivity;
+import com.yf.mesmid.app.NotificationUpdateActivity;
 
 import android.app.Notification;
 import android.app.NotificationManager;

@@ -1,4 +1,4 @@
-package com.yf.mesmid.tid.activity;
+package com.yf.mesmid.barcodebind;
 
 import android.os.Bundle;
 import android.os.Handler;

@@ -1,4 +1,4 @@
-package com.yf.mesmid.tid.activity;
+package com.yf.mesmid.app;
 
 import android.app.Activity;
 import android.content.Intent;

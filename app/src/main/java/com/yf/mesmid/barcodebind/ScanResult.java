@@ -1,4 +1,4 @@
-package com.yf.mesmid.tid.activity;
+package com.yf.mesmid.barcodebind;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

@@ -27,7 +27,7 @@
         >
 
         <activity
-            android:name=".tid.activity.UserActivity"
+            android:name=".barcodebind.UserActivity"
             android:label="@string/user_name" 
             android:screenOrientation="landscape"
             android:windowSoftInputMode="adjustUnspecified|stateHidden"
@@ -38,7 +38,7 @@
         </activity>
 
          <activity
-            android:name=".tid.activity.KeyBoard"
+            android:name=".app.KeyBoard"
             android:label="@string/keyboard_name"
             android:screenOrientation="landscape"
             android:windowSoftInputMode="adjustUnspecified|stateHidden"
@@ -48,7 +48,7 @@
         </activity>
 
         <activity
-            android:name=".tid.activity.SopActivity"
+            android:name=".barcodebind.SopActivity"
             android:label="@string/app_name" 
             android:screenOrientation="landscape"
             android:windowSoftInputMode="adjustUnspecified|stateHidden"
@@ -57,7 +57,7 @@
         </activity>
 
          <activity
-            android:name=".tid.activity.SopYuLangActivity"
+            android:name=".barcodebind.SopYuLangActivity"
             android:label="@string/app_name" 
             android:screenOrientation="landscape"
             android:windowSoftInputMode="adjustUnspecified|stateHidden"
@@ -73,7 +73,7 @@
         </activity>
 
         <activity
-            android:name=".tid.activity.MainActivity"
+            android:name=".app.MainActivity"
             android:label="@string/app_name" 
             android:screenOrientation="landscape"
             android:windowSoftInputMode="adjustUnspecified|stateHidden"
@@ -85,14 +85,14 @@
         </activity>
 
         <activity
-            android:name=".tid.activity.JobListActivity"
+            android:name=".barcodebind.JobListActivity"
             android:label="@string/app_name" 
             android:screenOrientation="landscape"
             android:windowSoftInputMode="adjustUnspecified|stateHidden"
             android:configChanges="orientation">
         </activity>
 
-        <activity android:name=".tid.activity.NotificationUpdateActivity"
+        <activity android:name=".app.NotificationUpdateActivity"
             android:theme="@android:style/Theme.Dialog">
         </activity>
 

@@ -1,4 +1,4 @@
-package com.yf.mesmid.tid.activity;
+package com.yf.mesmid.barcodebind;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -8,6 +8,8 @@ import com.yf.mesmid.db.DatabaseOper;
 import com.yf.mesmid.entity.Material;
 import com.yf.mesmid.entity.Procedure;
 import com.yf.mesmid.R;
+import com.yf.mesmid.app.KeyBoard;
+import com.yf.mesmid.app.NotificationUpdateActivity;
 import com.yf.mesmid.util.ScanSound;
 import com.yf.mesmid.service.WifiService;
 import com.yf.mesmid.entity.JobOrder;

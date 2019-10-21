@@ -25,6 +25,7 @@ import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.yf.mesmid.barcodebind.UserActivity;
 import com.yf.mesmid.db.DatabaseOper;
 import com.yf.mesmid.R;
 import com.yf.mesmid.util.ScanSound;

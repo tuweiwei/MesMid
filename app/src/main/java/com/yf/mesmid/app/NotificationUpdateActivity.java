@@ -1,7 +1,6 @@
-package com.yf.mesmid.tid.activity;
+package com.yf.mesmid.app;
 
 import com.yf.mesmid.R;
-import com.yf.mesmid.app.MyApp;
 import com.yf.mesmid.service.DownloadService;
 import com.yf.mesmid.service.DownloadService.DownloadBinder;
 

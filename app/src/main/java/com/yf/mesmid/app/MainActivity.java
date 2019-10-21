@@ -1,12 +1,14 @@
-package com.yf.mesmid.tid.activity;
+package com.yf.mesmid.app;
 
 import java.sql.SQLException;
 
+import com.yf.mesmid.barcodebind.JobListActivity;
 import com.yf.mesmid.consts.MyConsts;
 import com.yf.mesmid.db.DatabaseOper;
 import com.yf.mesmid.R;
 import com.yf.mesmid.service.WifiService;
 import com.yf.mesmid.entity.UpdataInfo;
+import com.yf.mesmid.tid.activity.XGActivity;
 
 import android.app.Activity;
 import android.app.AlertDialog;

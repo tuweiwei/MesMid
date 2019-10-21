@@ -122,26 +122,20 @@ public class DatabaseOper {
 		DatabaseName = "mes2013_10";
 		WifiSSID = "TP-LINK 2.4G";
 		WifiPWD = "qwe1234567";
-		Connect();
-	}
-
-	static public boolean Connect() {
 		try {
 			Class.forName("net.sourceforge.jtds.jdbc.Driver").newInstance();
 			con = DriverManager.getConnection(
 					"jdbc:jtds:sqlserver://" +
-					Address +
-					"/" +
-					DatabaseName
+							Address +
+							"/" +
+							DatabaseName
 					, UserName,
 					PassWord);
-		} catch (ClassNotFoundException e) {
-			return false;
-		} catch (SQLException e) {
-			return false;
-		} catch (Exception e) {
-			return false;
-		}
+		} catch (Exception e){}
+	}
+
+	static public boolean Connect() {
+
 		return true;
 	}
 

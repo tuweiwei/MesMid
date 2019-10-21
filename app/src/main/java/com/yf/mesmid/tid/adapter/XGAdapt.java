@@ -62,11 +62,11 @@ public class XGAdapt extends BaseAdapter {
             holder.number .setText(""+number);
             holder.tm .setText(tm);
             holder.jlrq .setText(jlrq);
-            if("1".equals(ztbz)) holder.ztbz .setText("sb");
-            else if("2".equals(ztbz)) holder.ztbz .setText("sb");
-            else if("3".equals(ztbz)) holder.ztbz .setText("sb");
-            else if("4".equals(ztbz)) holder.ztbz .setText("sb");
-            else holder.ztbz .setText("sb");
+            if("1".equals(ztbz)) holder.ztbz .setText("入冰箱");
+            else if("2".equals(ztbz)) holder.ztbz .setText("回温");
+            else if("3".equals(ztbz)) holder.ztbz .setText("机器搅拌");
+            else if("4".equals(ztbz)) holder.ztbz .setText("人工搅拌");
+            else holder.ztbz .setText("未知状态");
             holder.jlry .setText(jlry);
         }
 

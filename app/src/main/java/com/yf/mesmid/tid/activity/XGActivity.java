@@ -91,7 +91,7 @@ public class XGActivity extends Activity{
 			
 			@Override
 			public void onCheckedChanged(CompoundButton arg0, boolean arg1) {
-				if(arg1) Toast.makeText(XGActivity.this, "ɨ�蹤�ż������ѯȫ����Ϣ", 4000).show();
+				if(arg1) Toast.makeText(XGActivity.this, "扫描工号即代表查询全部信息", 4000).show();
 				
 			}
 		});
@@ -128,7 +128,7 @@ public class XGActivity extends Activity{
 					if(JQJBRadio.isChecked()) state = "3";
 					if(RGJBRadio.isChecked()) state = "4";
 					if(CXRadio.isChecked()) state = "5";
-					mDialog.setMessage("����ɨ������...");
+					mDialog.setMessage("正在扫描条码......");
 					mDialog.show();
 					RScan rScan = new RScan(strBuff, state);
 					Thread thread = new Thread(rScan);
@@ -230,13 +230,13 @@ public class XGActivity extends Activity{
 				if ( ! DatabaseOper.Connect() ) {
 					SendDataMessage(MyConsts.ERROR_NOEXIT, "���ݿ�����ʧ��", 0);
 					return;
-				}else SendDataMessage(MyConsts.CONNECT_SUCCESS, "���ݿ����ӳɹ�������ɨ������...", 0);
+				}else SendDataMessage(MyConsts.CONNECT_SUCCESS, "数据库连接成功，正在扫描条码", 0);
 			}
 			if(state.equals("5")){
 				List<XGInfo> list = DatabaseOper.CXXGInfo(barcode);
 				if(null == list){
 					ScanSound.PlayMusic(getApplicationContext(), ScanSound.MUSIC_ERROR);
-					SendDataMessage(MyConsts.ERROR_NOEXIT, "��ѯ�쳣", 0);
+					SendDataMessage(MyConsts.ERROR_NOEXIT, "查询异常", 0);
 				}else{
 					ScanSound.PlayMusic(getApplicationContext(), ScanSound.MUSIC_RIGHT);
 					SendDataMessage(MyConsts.CX_SUCCESS, list, 0);

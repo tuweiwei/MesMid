@@ -217,8 +217,7 @@ public class DownloadService extends Service {
 		public void run() {
 			try {
 				URL url = new URL(MyConsts.apkUrl);
-				HttpURLConnection conn = (HttpURLConnection) url
-						.openConnection();
+				HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 				conn.connect();
 				int length = conn.getContentLength();
 				InputStream is = conn.getInputStream();
@@ -233,7 +232,6 @@ public class DownloadService extends Service {
 
 				int count = 0;
 				byte buf[] = new byte[1024];
-
 				do {
 					int numread = is.read(buf);
 					count += numread;

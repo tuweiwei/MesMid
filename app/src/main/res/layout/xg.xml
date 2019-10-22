@@ -1,8 +1,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ui.activitys.activity.SopActivity" >
+    android:layout_height="match_parent">
     
     <RelativeLayout
     android:id="@+id/layoutmenu"
@@ -85,13 +84,12 @@
                 android:textSize="20dip"
                 android:layout_marginLeft="40dip"/>
 	        <RadioButton
-                android:id="@+id/radioButton_rgjb"
+                android:id="@+id/radioButton_kphs"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="人工搅拌"
+                android:text="空瓶回收"
                 android:textSize="20dip"
-                android:layout_marginLeft="40dip"
-                android:visibility="gone"/>
+                android:layout_marginLeft="40dip" />
 	        <RadioButton
                 android:id="@+id/radioButton_cx"
                 android:layout_width="wrap_content"

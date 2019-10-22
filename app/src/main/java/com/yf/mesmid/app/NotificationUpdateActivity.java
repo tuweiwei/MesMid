@@ -27,21 +27,42 @@ public class NotificationUpdateActivity extends Activity {
 	private DownloadBinder binder;
 	private boolean isBinded;
 	private ProgressBar mProgressBar;
-	// 获取到下载url后，直接复制给MapApp,里面的全局变量
 	private String ApkUrl;
 	private boolean isDestroy = true;
 	private MyApp app;
+
+	private ICallbackResult callback = new ICallbackResult() {
+		@Override
+		public void OnBackResult(Object result) {
+			if ("finish".equals(result)) {
+				finish();
+				return;
+			}
+
+			int i = (Integer) result;
+			mProgressBar.setProgress(i);
+			mHandler.sendEmptyMessage(i);
+		}
+	};
+
+	private Handler mHandler = new Handler() {
+		@Override
+		public void handleMessage(android.os.Message msg) {
+			tv_progress.setText("当前进度 ： " + msg.what + "%");
+		};
+	};
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.update);
+
 		app = (MyApp) getApplication();
 		ApkUrl = getIntent().getStringExtra("apkurl");
-		// btn_update = (Button) findViewById(R.id.update);
 		btn_cancel = (Button) findViewById(R.id.cancel);
 		tv_progress = (TextView) findViewById(R.id.currentPos);
 		mProgressBar = (ProgressBar) findViewById(R.id.progressbar1);
+
 		btn_cancel.setOnClickListener(new OnClickListener() {
 
 			@Override
@@ -49,14 +70,11 @@ public class NotificationUpdateActivity extends Activity {
 				binder.cancel();
 				binder.cancelNotification();
 				finish();
-				//Intent intent = new Intent(NotificationUpdateActivity.this,MainTabActivity.class);
-				//startActivity(intent);
 			}
 		});
 	}
 
 	ServiceConnection conn = new ServiceConnection() {
-
 		@Override
 		public void onServiceDisconnected(ComponentName name) {
 			isBinded = false;
@@ -65,8 +83,6 @@ public class NotificationUpdateActivity extends Activity {
 		@Override
 		public void onServiceConnected(ComponentName name, IBinder service) {
 			binder = (DownloadBinder) service;
-			System.out.println("服务启动!!!");
-			// 开始下载
 			isBinded = true;
 			binder.addCallback(callback);
 			binder.start();
@@ -82,18 +98,6 @@ public class NotificationUpdateActivity extends Activity {
 			startService(it);
 			bindService(it, conn, Context.BIND_AUTO_CREATE);
 		}
-		System.out.println(" notification  onresume");
-	}
-
-	@Override
-	protected void onNewIntent(Intent intent) {
-		super.onNewIntent(intent);
-		if (isDestroy && app.isDownload()) {
-			Intent it = new Intent(NotificationUpdateActivity.this, DownloadService.class);
-			startService(it);
-			bindService(it, conn, Context.BIND_AUTO_CREATE);
-		}
-		System.out.println(" notification  onNewIntent");
 	}
 
 	@Override
@@ -104,54 +108,25 @@ public class NotificationUpdateActivity extends Activity {
 	@Override
 	protected void onPause() {
 		super.onPause();
-		System.out.println(" notification  onPause");
 	}
 
 	@Override
 	protected void onStop() {
 		super.onStop();
 		isDestroy = false;
-		System.out.println(" notification  onStop");
 	}
 
 	@Override
 	protected void onDestroy() {
 		super.onDestroy();
 		if (isBinded) {
-			System.out.println(" onDestroy   unbindservice");
 			unbindService(conn);
 		}
 		if (binder != null && binder.isCanceled()) {
-			System.out.println(" onDestroy  stopservice");
 			Intent it = new Intent(this, DownloadService.class);
 			stopService(it);
 		}
 	}
-
-	private ICallbackResult callback = new ICallbackResult() {
-
-		@Override
-		public void OnBackResult(Object result) {
-			if ("finish".equals(result)) {
-				finish();
-				return;
-			}
-			
-			int i = (Integer) result;
-			mProgressBar.setProgress(i);
-			// tv_progress.setText("当前进度 =>  "+i+"%");
-			// tv_progress.postInvalidate();
-			mHandler.sendEmptyMessage(i);
-		}
-
-	};
-
-	private Handler mHandler = new Handler() {
-		@Override
-		public void handleMessage(android.os.Message msg) {
-			tv_progress.setText("当前进度 ： " + msg.what + "%");
-		};
-	};
 
 	public interface ICallbackResult {
 		void OnBackResult(Object result);

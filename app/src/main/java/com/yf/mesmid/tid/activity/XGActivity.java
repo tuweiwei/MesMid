@@ -4,7 +4,6 @@ import java.util.List;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
-import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
@@ -38,7 +37,7 @@ public class XGActivity extends Activity{
 	private RadioButton RBXRadio;
 	private RadioButton HWRadio;
 	private RadioButton JQJBRadio;
-	private RadioButton RGJBRadio;
+	private RadioButton KPHSJBRadio;
 	private RadioButton CXRadio;
 	private ListView mlist;
 
@@ -47,44 +46,16 @@ public class XGActivity extends Activity{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.xg);
 		mDialog = new ProgressDialog(this);
+
 		RBXRadio = (RadioButton) findViewById(R.id.radioButton_rbx);
 		RBXRadio.setChecked(true);
-		RBXRadio.setOnCheckedChangeListener(new OnCheckedChangeListener() {
-			
-			@Override
-			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-				if(isChecked){
-//					Intent intent = new Intent(getApplicationContext(), UserActivity.class);
-//					startActivity(intent);
-				}
-				
-			}
-		});
+
 		HWRadio = (RadioButton) findViewById(R.id.radioButton_hw);
-		HWRadio.setOnCheckedChangeListener(new OnCheckedChangeListener() {
-			
-			@Override
-			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-				if(isChecked){
-//					Intent intent = new Intent(getApplicationContext(), UserActivity.class);
-//					startActivity(intent);
-				}
-				
-			}
-		});
+
 		JQJBRadio = (RadioButton) findViewById(R.id.radioButton_jqjb);
-		JQJBRadio.setOnCheckedChangeListener(new OnCheckedChangeListener() {
-			
-			@Override
-			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-				if(isChecked){
-//					Intent intent = new Intent(getApplicationContext(), UserActivity.class);
-//					startActivity(intent);
-				}
-				
-			}
-		});
-		RGJBRadio = (RadioButton) findViewById(R.id.radioButton_rgjb);
+
+		KPHSJBRadio = (RadioButton) findViewById(R.id.radioButton_kphs);
+
 		CXRadio = (RadioButton) findViewById(R.id.radioButton_cx);
 		CXRadio.setOnCheckedChangeListener(new OnCheckedChangeListener() {
 			
@@ -125,7 +96,7 @@ public class XGActivity extends Activity{
 					if(RBXRadio.isChecked()) state = "1";
 					if(HWRadio.isChecked()) state = "2";
 					if(JQJBRadio.isChecked()) state = "3";
-					if(RGJBRadio.isChecked()) state = "4";
+					if(KPHSJBRadio.isChecked()) state = "4";
 					if(CXRadio.isChecked()) state = "5";
 					mDialog.setMessage("正在扫描条码......");
 					mDialog.show();
@@ -137,22 +108,17 @@ public class XGActivity extends Activity{
 					EditXG.setSelection(Len-1);
 					bEnter = true;
 				}
-				
 			}
 			
 			@Override
-			public void beforeTextChanged(CharSequence arg0, int arg1, int arg2,
-					int arg3) {}
-			
+			public void beforeTextChanged(CharSequence arg0, int arg1, int arg2, int arg3) {}
+
 			@Override
 			public void afterTextChanged(Editable arg0) {}
 		});
-//		Intent intent = new Intent(getApplicationContext(), UserActivity.class);
-//		startActivity(intent);
 	}
 	
-	private void TipError(String strInfo, final boolean bExit)
-	{
+	private void TipError(String strInfo, final boolean bExit) {
 		AlertDialog.Builder build = new AlertDialog.Builder(XGActivity.this);
 		build.setTitle("异常提示");
 		build.setMessage(strInfo+"\n\n");
@@ -193,7 +159,7 @@ public class XGActivity extends Activity{
 			else if(Code == MyConsts.CX_SUCCESS){
 				mDialog.cancel();
 				TextOpertips.setTextColor(Color.GREEN);
-				TextOpertips.setText("��ѯ�ɹ�");
+				TextOpertips.setText("SB");
 				List<XGInfo> list = (List<XGInfo>) msg.obj;
 				XGAdapt adapt = new XGAdapt(getApplicationContext(), list);
 				mlist.setAdapter(adapt);
@@ -207,19 +173,12 @@ public class XGActivity extends Activity{
 	class RScan implements Runnable{
 		private String state;
 		private String barcode;
-		RScan(String barcode, String state)
-		{
+		RScan(String barcode, String state) {
 	        this.barcode = barcode;
 	        this.state = state;
 		}
 		@Override
 		public void run() {
-			if(null == DatabaseOper.con){
-				if ( ! DatabaseOper.Connect() ) {
-					SendDataMessage(MyConsts.ERROR_NOEXIT, "数据库连接失败", 0);
-					return;
-				}else SendDataMessage(MyConsts.CONNECT_SUCCESS, "数据库连接成功，正在扫描条码", 0);
-			}
 			if(state.equals("5")){
 				List<XGInfo> list = DatabaseOper.CXXGInfo(barcode);
 				if(null == list){

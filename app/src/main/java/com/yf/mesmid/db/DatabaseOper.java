@@ -155,11 +155,9 @@ public class DatabaseOper {
 				updatainfo.setDescription(strDsc);
 				String strUrl= rs.getString("apkurl");
 				updatainfo.setApkurl(strUrl);
-				Log.i(TAG, "version: " + strVersion);
-				Log.i(TAG, "description: " + strDsc);
-				Log.i(TAG, "apkurl: " + strUrl);
-				
-			}else return null;
+			}else {
+				return null;
+			}
 			
 			rs.close();
 			stmt.close();

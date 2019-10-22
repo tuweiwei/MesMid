@@ -12,6 +12,7 @@ import com.yf.mesmid.R;
 import com.yf.mesmid.app.MyApp;
 import com.yf.mesmid.barcodebind.JobListActivity;
 import com.yf.mesmid.app.NotificationUpdateActivity;
+import com.yf.mesmid.consts.MyConsts;
 
 import android.app.Notification;
 import android.app.NotificationManager;
@@ -21,7 +22,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Binder;
-import android.os.Environment;
 import android.os.Handler;
 import android.os.IBinder;
 import android.os.Message;
@@ -32,20 +32,13 @@ public class DownloadService extends Service {
 	private int progress;
 	private NotificationManager mNotificationManager;
 	private boolean canceled;
-	// 返回的安装包url
-	private String apkUrl = "http://192.168.11.100/MESMid.apk";
-	// private String apkUrl = MyApp.downloadApkUrl;
-	/* 下载包安装路径 */
-	private static final String savePath = Environment.getExternalStorageDirectory().getPath() +
-			"/updateApk/";
-
-	private static final String saveFileName = savePath + "MESMid.apk";
+	private static final String saveFileName = MyConsts.savePath + "MESMid.apk";
 	private NotificationUpdateActivity.ICallbackResult callback;
 	private DownloadBinder binder;
 	private MyApp app;
 	private boolean serviceIsDestroy = false;
-
 	private Context mContext = this;
+
 	private Handler mHandler = new Handler() {
 
 		@Override
@@ -54,8 +47,6 @@ public class DownloadService extends Service {
 			switch (msg.what) {
 			case 0:
 				app.setDownload(false);
-				// 下载完毕
-				// 取消通知
 				mNotificationManager.cancel(NOTIFY_ID);
 				installApk();
 				break;
@@ -98,12 +89,6 @@ public class DownloadService extends Service {
 		}
 	};
 
-	//
-	// @Override
-	// public int onStartCommand(Intent intent, int flags, int startId) {
-	// return START_STICKY;
-	// }
-
 	@Override
 	public IBinder onBind(Intent intent) {
 		return binder;
@@ -136,7 +121,6 @@ public class DownloadService extends Service {
 
 	@Override
 	public void onStart(Intent intent, int startId) {
-		apkUrl = intent.getStringExtra("apkurl");
 		super.onStart(intent, startId);
 	}
 	
@@ -145,11 +129,12 @@ public class DownloadService extends Service {
 			if (downLoadThread == null || !downLoadThread.isAlive()) {
 				progress = 0;
 				setUpNotification();
+
 				new Thread() {
+					@Override
 					public void run() {
-						// 下载
 						startDownload();
-					};
+					}
 				}.start();
 			}
 		}
@@ -158,16 +143,8 @@ public class DownloadService extends Service {
 			canceled = true;
 		}
 
-		public int getProgress() {
-			return progress;
-		}
-
 		public boolean isCanceled() {
 			return canceled;
-		}
-
-		public boolean serviceIsDestroy() {
-			return serviceIsDestroy;
 		}
 
 		public void cancelNotification() {
@@ -184,13 +161,8 @@ public class DownloadService extends Service {
 		downloadApk();
 	}
 
-	//
 	Notification mNotification;
 
-	// 通知栏
-	/**
-	 * 创建通知
-	 */
 	private void setUpNotification() {
 		int icon = R.drawable.ic_launcher;
 		CharSequence tickerText = "MESMid.apk 开始下载";
@@ -203,7 +175,6 @@ public class DownloadService extends Service {
 		RemoteViews contentView = new RemoteViews(getPackageName(),
 				R.layout.download_notification_layout);
 		contentView.setTextViewText(R.id.name, "MESMid.apk 正在下载...");
-		// 指定个性化视图
 		mNotification.contentView = contentView;
 
 		Intent intent = new Intent(this, JobListActivity.class);
@@ -220,12 +191,6 @@ public class DownloadService extends Service {
 		mNotificationManager.notify(NOTIFY_ID, mNotification);
 	}
 
-	//
-	/**
-	 * 下载apk
-	 * 
-	 * @param url
-	 */
 	private Thread downLoadThread;
 
 	private void downloadApk() {
@@ -233,11 +198,6 @@ public class DownloadService extends Service {
 		downLoadThread.start();
 	}
 
-	/**
-	 * 安装apk
-	 * 
-	 * @param
-	 */
 	private void installApk() {
 		File apkfile = new File(saveFileName);
 		if (!apkfile.exists()) {
@@ -245,8 +205,7 @@ public class DownloadService extends Service {
 		}
 		Intent i = new Intent(Intent.ACTION_VIEW);
 		i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-		i.setDataAndType(Uri.parse("file://" + apkfile.toString()),
-				"application/vnd.android.package-archive");
+		i.setDataAndType(Uri.parse("file://" + apkfile.toString()), "application/vnd.android.package-archive");
 		mContext.startActivity(i);
 		callback.OnBackResult("finish");
 
@@ -257,15 +216,14 @@ public class DownloadService extends Service {
 		@Override
 		public void run() {
 			try {
-				URL url = new URL(apkUrl);
-
+				URL url = new URL(MyConsts.apkUrl);
 				HttpURLConnection conn = (HttpURLConnection) url
 						.openConnection();
 				conn.connect();
 				int length = conn.getContentLength();
 				InputStream is = conn.getInputStream();
 
-				File file = new File(savePath);
+				File file = new File(MyConsts.savePath);
 				if (!file.exists()) {
 					file.mkdirs();
 				}
@@ -298,7 +256,7 @@ public class DownloadService extends Service {
 						break;
 					}
 					fos.write(buf, 0, numread);
-				} while (!canceled);// 点击取消就停止下载.
+				} while (!canceled);
 
 				fos.close();
 				is.close();
@@ -307,7 +265,6 @@ public class DownloadService extends Service {
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
-
 		}
 	};
 

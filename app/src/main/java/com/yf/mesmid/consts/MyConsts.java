@@ -12,8 +12,9 @@ public interface MyConsts {
     int ERRORDIALOG_CANCEL = 120;
     int UPDATE = 130;
     int UPDATE_ERROR = 131;
-    String STRING_UPDATE = "APP";
-    String STRING_NOUPDATE = "APP";
     int CX_SUCCESS = 103;
+
+    String savePath = Environment.getExternalStorageDirectory().getPath() + "/updateApk/";
+    String apkUrl = "http://192.168.11.100/MESMid.apk";
 
 }

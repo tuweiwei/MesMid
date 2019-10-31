@@ -31,4 +31,5 @@ dependencies {
     implementation 'org.projectlombok:lombok:1.16.8'
     implementation 'org.glassfish:javax.annotation:10.0-b28'
     implementation files('libs/APEncryptLib.jar')
+    implementation files('libs/jtds-1.2.8.jar')
 }

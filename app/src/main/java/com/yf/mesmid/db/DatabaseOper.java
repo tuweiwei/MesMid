@@ -114,7 +114,8 @@ public class DatabaseOper {
 		return strCLBarcode;
 	}
 
-	static {
+	static public void Connect() {
+
 		ConnMode =  "wifi";
 		UserName = "sa";
 		PassWord = "reedbel";
@@ -124,19 +125,10 @@ public class DatabaseOper {
 		WifiPWD = "qwe1234567";
 		try {
 			Class.forName("net.sourceforge.jtds.jdbc.Driver").newInstance();
-			con = DriverManager.getConnection(
-					"jdbc:jtds:sqlserver://" +
-							Address +
-							"/" +
-							DatabaseName
-					, UserName,
-					PassWord);
-		} catch (Exception e){}
-	}
+			con = DriverManager.getConnection("jdbc:jtds:sqlserver://" + Address + "/" + DatabaseName, UserName, PassWord);
+		} catch (Exception e){
 
-	static public boolean Connect() {
-
-		return true;
+		}
 	}
 
 	public static UpdataInfo GetUpdateInfo(){

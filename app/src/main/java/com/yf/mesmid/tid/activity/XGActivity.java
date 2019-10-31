@@ -180,6 +180,7 @@ public class XGActivity extends Activity{
 		@Override
 		public void run() {
 			if(state.equals("5")){
+				DatabaseOper.Connect();
 				List<XGInfo> list = DatabaseOper.CXXGInfo(barcode);
 				if(null == list){
 					ScanSound.PlayMusic(getApplicationContext(), ScanSound.MUSIC_ERROR);
@@ -189,6 +190,7 @@ public class XGActivity extends Activity{
 					SendDataMessage(MyConsts.CX_SUCCESS, list, 0);
 				}
 			}else{
+				DatabaseOper.Connect();
 				int xh =DatabaseOper.ScanSMTInfo(barcode, "0", state, "0");
 				if(100 != xh){
 					ScanSound.PlayMusic(getApplicationContext(), ScanSound.MUSIC_ERROR);
